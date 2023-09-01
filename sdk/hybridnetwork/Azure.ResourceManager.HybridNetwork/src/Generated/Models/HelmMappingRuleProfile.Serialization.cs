@@ -10,8 +10,34 @@ using Azure.Core;
 
 namespace Azure.ResourceManager.HybridNetwork.Models
 {
-    public partial class HelmMappingRuleProfile
+    public partial class HelmMappingRuleProfile : IUtf8JsonSerializable
     {
+        void IUtf8JsonSerializable.Write(Utf8JsonWriter writer)
+        {
+            writer.WriteStartObject();
+            if (Optional.IsDefined(ReleaseNamespace))
+            {
+                writer.WritePropertyName("releaseNamespace"u8);
+                writer.WriteStringValue(ReleaseNamespace);
+            }
+            if (Optional.IsDefined(ReleaseName))
+            {
+                writer.WritePropertyName("releaseName"u8);
+                writer.WriteStringValue(ReleaseName);
+            }
+            if (Optional.IsDefined(HelmPackageVersion))
+            {
+                writer.WritePropertyName("helmPackageVersion"u8);
+                writer.WriteStringValue(HelmPackageVersion);
+            }
+            if (Optional.IsDefined(Values))
+            {
+                writer.WritePropertyName("values"u8);
+                writer.WriteStringValue(Values);
+            }
+            writer.WriteEndObject();
+        }
+
         internal static HelmMappingRuleProfile DeserializeHelmMappingRuleProfile(JsonElement element)
         {
             if (element.ValueKind == JsonValueKind.Null)

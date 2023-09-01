@@ -31,29 +31,21 @@ namespace Azure.ResourceManager.HybridNetwork
         /// <param name="systemData"> The systemData. </param>
         /// <param name="tags"> The tags. </param>
         /// <param name="location"> The location. </param>
-        /// <param name="provisioningState"> The provisioning state of the network function definition version resource. </param>
-        /// <param name="versionState"> The network function definition version state. </param>
-        /// <param name="description"> The network function definition version description. </param>
-        /// <param name="deployParameters"> The deployment parameters of the network function definition version. </param>
-        /// <param name="networkFunctionType"> The network function type. </param>
-        internal NetworkFunctionDefinitionVersionData(ResourceIdentifier id, string name, ResourceType resourceType, SystemData systemData, IDictionary<string, string> tags, AzureLocation location, ProvisioningState? provisioningState, VersionState? versionState, string description, string deployParameters, NetworkFunctionType? networkFunctionType) : base(id, name, resourceType, systemData, tags, location)
+        /// <param name="properties">
+        /// Network function definition version properties.
+        /// Please note <see cref="NetworkFunctionDefinitionVersionPropertiesFormat"/> is the base class. According to the scenario, a derived class of the base class might need to be assigned here, or this property needs to be casted to one of the possible derived classes.
+        /// The available derived classes include <see cref="ContainerizedNetworkFunctionDefinitionVersion"/> and <see cref="VirtualNetworkFunctionDefinitionVersion"/>.
+        /// </param>
+        internal NetworkFunctionDefinitionVersionData(ResourceIdentifier id, string name, ResourceType resourceType, SystemData systemData, IDictionary<string, string> tags, AzureLocation location, NetworkFunctionDefinitionVersionPropertiesFormat properties) : base(id, name, resourceType, systemData, tags, location)
         {
-            ProvisioningState = provisioningState;
-            VersionState = versionState;
-            Description = description;
-            DeployParameters = deployParameters;
-            NetworkFunctionType = networkFunctionType;
+            Properties = properties;
         }
 
-        /// <summary> The provisioning state of the network function definition version resource. </summary>
-        public ProvisioningState? ProvisioningState { get; }
-        /// <summary> The network function definition version state. </summary>
-        public VersionState? VersionState { get; }
-        /// <summary> The network function definition version description. </summary>
-        public string Description { get; set; }
-        /// <summary> The deployment parameters of the network function definition version. </summary>
-        public string DeployParameters { get; set; }
-        /// <summary> The network function type. </summary>
-        internal NetworkFunctionType? NetworkFunctionType { get; set; }
+        /// <summary>
+        /// Network function definition version properties.
+        /// Please note <see cref="NetworkFunctionDefinitionVersionPropertiesFormat"/> is the base class. According to the scenario, a derived class of the base class might need to be assigned here, or this property needs to be casted to one of the possible derived classes.
+        /// The available derived classes include <see cref="ContainerizedNetworkFunctionDefinitionVersion"/> and <see cref="VirtualNetworkFunctionDefinitionVersion"/>.
+        /// </summary>
+        public NetworkFunctionDefinitionVersionPropertiesFormat Properties { get; set; }
     }
 }

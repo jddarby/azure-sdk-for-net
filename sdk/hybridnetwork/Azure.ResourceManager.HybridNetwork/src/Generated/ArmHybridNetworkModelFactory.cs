@@ -227,6 +227,38 @@ namespace Azure.ResourceManager.HybridNetwork.Models
             return new NetworkFunctionDefinitionGroupData(id, name, resourceType, systemData, tags, location, provisioningState, description);
         }
 
+        /// <summary> Initializes a new instance of NetworkFunctionDefinitionVersionData. </summary>
+        /// <param name="id"> The id. </param>
+        /// <param name="name"> The name. </param>
+        /// <param name="resourceType"> The resourceType. </param>
+        /// <param name="systemData"> The systemData. </param>
+        /// <param name="tags"> The tags. </param>
+        /// <param name="location"> The location. </param>
+        /// <param name="properties">
+        /// Network function definition version properties.
+        /// Please note <see cref="NetworkFunctionDefinitionVersionPropertiesFormat"/> is the base class. According to the scenario, a derived class of the base class might need to be assigned here, or this property needs to be casted to one of the possible derived classes.
+        /// The available derived classes include <see cref="ContainerizedNetworkFunctionDefinitionVersion"/> and <see cref="VirtualNetworkFunctionDefinitionVersion"/>.
+        /// </param>
+        /// <returns> A new <see cref="HybridNetwork.NetworkFunctionDefinitionVersionData"/> instance for mocking. </returns>
+        public static NetworkFunctionDefinitionVersionData NetworkFunctionDefinitionVersionData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, SystemData systemData = null, IDictionary<string, string> tags = null, AzureLocation location = default, NetworkFunctionDefinitionVersionPropertiesFormat properties = null)
+        {
+            tags ??= new Dictionary<string, string>();
+
+            return new NetworkFunctionDefinitionVersionData(id, name, resourceType, systemData, tags, location, properties);
+        }
+
+        /// <summary> Initializes a new instance of NetworkFunctionDefinitionVersionPropertiesFormat. </summary>
+        /// <param name="provisioningState"> The provisioning state of the network function definition version resource. </param>
+        /// <param name="versionState"> The network function definition version state. </param>
+        /// <param name="description"> The network function definition version description. </param>
+        /// <param name="deployParameters"> The deployment parameters of the network function definition version. </param>
+        /// <param name="networkFunctionType"> The network function type. </param>
+        /// <returns> A new <see cref="Models.NetworkFunctionDefinitionVersionPropertiesFormat"/> instance for mocking. </returns>
+        public static NetworkFunctionDefinitionVersionPropertiesFormat NetworkFunctionDefinitionVersionPropertiesFormat(ProvisioningState? provisioningState = null, VersionState? versionState = null, string description = null, string deployParameters = null, string networkFunctionType = "Unknown")
+        {
+            return new UnknownNetworkFunctionDefinitionVersionPropertiesFormat(provisioningState, versionState, description, deployParameters, networkFunctionType);
+        }
+
         /// <summary> Initializes a new instance of NetworkServiceDesignGroupData. </summary>
         /// <param name="id"> The id. </param>
         /// <param name="name"> The name. </param>
@@ -492,14 +524,6 @@ namespace Azure.ResourceManager.HybridNetwork.Models
             return new SiteNetworkServiceData(id, name, resourceType, systemData, tags, location, identity, provisioningState, managedResourceGroupConfiguration, siteReferenceId != null ? ResourceManagerModelFactory.WritableSubResource(siteReferenceId) : null, publisherName, publisherScope, networkServiceDesignGroupName, networkServiceDesignVersionName, networkServiceDesignVersionOfferingLocation, desiredStateConfigurationGroupValueReferences, lastStateNetworkServiceDesignVersionName, lastStateConfigurationGroupValueReferences);
         }
 
-        /// <summary> Initializes a new instance of MappingRuleProfile. </summary>
-        /// <param name="applicationEnablement"> The application enablement. </param>
-        /// <returns> A new <see cref="Models.MappingRuleProfile"/> instance for mocking. </returns>
-        public static MappingRuleProfile MappingRuleProfile(ApplicationEnablement? applicationEnablement = null)
-        {
-            return new MappingRuleProfile(applicationEnablement);
-        }
-
         /// <summary> Initializes a new instance of AzureContainerRegistryScopedTokenCredential. </summary>
         /// <param name="username"> The username of the credential. </param>
         /// <param name="acrToken"> The credential value. </param>
@@ -535,42 +559,36 @@ namespace Azure.ResourceManager.HybridNetwork.Models
             return new AzureStorageAccountContainerCredential(containerName, containerSasUri);
         }
 
-        /// <summary> Initializes a new instance of AzureArcKubernetesDeployMappingRuleProfile. </summary>
-        /// <param name="applicationEnablement"> The application enablement. </param>
-        /// <param name="helmMappingRuleProfile"> The helm mapping rule profile. </param>
-        /// <returns> A new <see cref="Models.AzureArcKubernetesDeployMappingRuleProfile"/> instance for mocking. </returns>
-        public static AzureArcKubernetesDeployMappingRuleProfile AzureArcKubernetesDeployMappingRuleProfile(ApplicationEnablement? applicationEnablement = null, HelmMappingRuleProfile helmMappingRuleProfile = null)
+        /// <summary> Initializes a new instance of ContainerizedNetworkFunctionDefinitionVersion. </summary>
+        /// <param name="provisioningState"> The provisioning state of the network function definition version resource. </param>
+        /// <param name="versionState"> The network function definition version state. </param>
+        /// <param name="description"> The network function definition version description. </param>
+        /// <param name="deployParameters"> The deployment parameters of the network function definition version. </param>
+        /// <param name="networkFunctionTemplate">
+        /// Containerized network function template.
+        /// Please note <see cref="ContainerizedNetworkFunctionTemplate"/> is the base class. According to the scenario, a derived class of the base class might need to be assigned here, or this property needs to be casted to one of the possible derived classes.
+        /// The available derived classes include <see cref="AzureArcKubernetesNetworkFunctionTemplate"/>.
+        /// </param>
+        /// <returns> A new <see cref="Models.ContainerizedNetworkFunctionDefinitionVersion"/> instance for mocking. </returns>
+        public static ContainerizedNetworkFunctionDefinitionVersion ContainerizedNetworkFunctionDefinitionVersion(ProvisioningState? provisioningState = null, VersionState? versionState = null, string description = null, string deployParameters = null, ContainerizedNetworkFunctionTemplate networkFunctionTemplate = null)
         {
-            return new AzureArcKubernetesDeployMappingRuleProfile(applicationEnablement, helmMappingRuleProfile);
+            return new ContainerizedNetworkFunctionDefinitionVersion(provisioningState, versionState, description, deployParameters, NetworkFunctionType.ContainerizedNetworkFunction, networkFunctionTemplate);
         }
 
-        /// <summary> Initializes a new instance of HelmMappingRuleProfile. </summary>
-        /// <param name="releaseNamespace"> Helm release namespace. </param>
-        /// <param name="releaseName"> Helm release name. </param>
-        /// <param name="helmPackageVersion"> Helm package version. </param>
-        /// <param name="values"> Helm release values. </param>
-        /// <returns> A new <see cref="Models.HelmMappingRuleProfile"/> instance for mocking. </returns>
-        public static HelmMappingRuleProfile HelmMappingRuleProfile(string releaseNamespace = null, string releaseName = null, string helmPackageVersion = null, string values = null)
+        /// <summary> Initializes a new instance of VirtualNetworkFunctionDefinitionVersion. </summary>
+        /// <param name="provisioningState"> The provisioning state of the network function definition version resource. </param>
+        /// <param name="versionState"> The network function definition version state. </param>
+        /// <param name="description"> The network function definition version description. </param>
+        /// <param name="deployParameters"> The deployment parameters of the network function definition version. </param>
+        /// <param name="networkFunctionTemplate">
+        /// Virtual network function template.
+        /// Please note <see cref="VirtualNetworkFunctionTemplate"/> is the base class. According to the scenario, a derived class of the base class might need to be assigned here, or this property needs to be casted to one of the possible derived classes.
+        /// The available derived classes include <see cref="AzureCoreNetworkFunctionTemplate"/> and <see cref="AzureOperatorNexusNetworkFunctionTemplate"/>.
+        /// </param>
+        /// <returns> A new <see cref="Models.VirtualNetworkFunctionDefinitionVersion"/> instance for mocking. </returns>
+        public static VirtualNetworkFunctionDefinitionVersion VirtualNetworkFunctionDefinitionVersion(ProvisioningState? provisioningState = null, VersionState? versionState = null, string description = null, string deployParameters = null, VirtualNetworkFunctionTemplate networkFunctionTemplate = null)
         {
-            return new HelmMappingRuleProfile(releaseNamespace, releaseName, helmPackageVersion, values);
-        }
-
-        /// <summary> Initializes a new instance of AzureCoreVhdImageDeployMappingRuleProfile. </summary>
-        /// <param name="applicationEnablement"> The application enablement. </param>
-        /// <param name="vhdImageMappingRuleUserConfiguration"> The vhd mapping rule profile. </param>
-        /// <returns> A new <see cref="Models.AzureCoreVhdImageDeployMappingRuleProfile"/> instance for mocking. </returns>
-        public static AzureCoreVhdImageDeployMappingRuleProfile AzureCoreVhdImageDeployMappingRuleProfile(ApplicationEnablement? applicationEnablement = null, string vhdImageMappingRuleUserConfiguration = null)
-        {
-            return new AzureCoreVhdImageDeployMappingRuleProfile(applicationEnablement, vhdImageMappingRuleUserConfiguration != null ? new VhdImageMappingRuleProfile(vhdImageMappingRuleUserConfiguration) : null);
-        }
-
-        /// <summary> Initializes a new instance of AzureCoreArmTemplateDeployMappingRuleProfile. </summary>
-        /// <param name="applicationEnablement"> The application enablement. </param>
-        /// <param name="templateParameters"> The template mapping rule profile. </param>
-        /// <returns> A new <see cref="Models.AzureCoreArmTemplateDeployMappingRuleProfile"/> instance for mocking. </returns>
-        public static AzureCoreArmTemplateDeployMappingRuleProfile AzureCoreArmTemplateDeployMappingRuleProfile(ApplicationEnablement? applicationEnablement = null, string templateParameters = null)
-        {
-            return new AzureCoreArmTemplateDeployMappingRuleProfile(applicationEnablement, templateParameters != null ? new ArmTemplateMappingRuleProfile(templateParameters) : null);
+            return new VirtualNetworkFunctionDefinitionVersion(provisioningState, versionState, description, deployParameters, NetworkFunctionType.VirtualNetworkFunction, networkFunctionTemplate);
         }
 
         /// <summary> Initializes a new instance of HelmPackageApplicationOverview. </summary>

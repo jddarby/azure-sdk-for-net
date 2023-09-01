@@ -11,7 +11,7 @@ namespace Azure.ResourceManager.HybridNetwork.Models
     public partial class MappingRuleProfile
     {
         /// <summary> Initializes a new instance of MappingRuleProfile. </summary>
-        internal MappingRuleProfile()
+        public MappingRuleProfile()
         {
         }
 
@@ -23,6 +23,6 @@ namespace Azure.ResourceManager.HybridNetwork.Models
         }
 
         /// <summary> The application enablement. </summary>
-        public ApplicationEnablement? ApplicationEnablement { get; }
+        public ApplicationEnablement? ApplicationEnablement { get; set; }
     }
 }

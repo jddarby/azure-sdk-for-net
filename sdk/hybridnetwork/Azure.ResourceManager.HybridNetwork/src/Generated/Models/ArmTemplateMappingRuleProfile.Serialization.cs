@@ -10,8 +10,19 @@ using Azure.Core;
 
 namespace Azure.ResourceManager.HybridNetwork.Models
 {
-    internal partial class ArmTemplateMappingRuleProfile
+    internal partial class ArmTemplateMappingRuleProfile : IUtf8JsonSerializable
     {
+        void IUtf8JsonSerializable.Write(Utf8JsonWriter writer)
+        {
+            writer.WriteStartObject();
+            if (Optional.IsDefined(TemplateParameters))
+            {
+                writer.WritePropertyName("templateParameters"u8);
+                writer.WriteStringValue(TemplateParameters);
+            }
+            writer.WriteEndObject();
+        }
+
         internal static ArmTemplateMappingRuleProfile DeserializeArmTemplateMappingRuleProfile(JsonElement element)
         {
             if (element.ValueKind == JsonValueKind.Null)

@@ -11,7 +11,7 @@ namespace Azure.ResourceManager.HybridNetwork.Models
     public partial class AzureArcKubernetesDeployMappingRuleProfile : MappingRuleProfile
     {
         /// <summary> Initializes a new instance of AzureArcKubernetesDeployMappingRuleProfile. </summary>
-        internal AzureArcKubernetesDeployMappingRuleProfile()
+        public AzureArcKubernetesDeployMappingRuleProfile()
         {
         }
 
@@ -24,6 +24,6 @@ namespace Azure.ResourceManager.HybridNetwork.Models
         }
 
         /// <summary> The helm mapping rule profile. </summary>
-        public HelmMappingRuleProfile HelmMappingRuleProfile { get; }
+        public HelmMappingRuleProfile HelmMappingRuleProfile { get; set; }
     }
 }

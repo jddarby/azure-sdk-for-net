@@ -11,7 +11,7 @@ namespace Azure.ResourceManager.HybridNetwork.Models
     public partial class AzureCoreVhdImageDeployMappingRuleProfile : MappingRuleProfile
     {
         /// <summary> Initializes a new instance of AzureCoreVhdImageDeployMappingRuleProfile. </summary>
-        internal AzureCoreVhdImageDeployMappingRuleProfile()
+        public AzureCoreVhdImageDeployMappingRuleProfile()
         {
         }
 
@@ -24,11 +24,17 @@ namespace Azure.ResourceManager.HybridNetwork.Models
         }
 
         /// <summary> The vhd mapping rule profile. </summary>
-        internal VhdImageMappingRuleProfile VhdImageMappingRuleProfile { get; }
+        internal VhdImageMappingRuleProfile VhdImageMappingRuleProfile { get; set; }
         /// <summary> List of values. </summary>
         public string VhdImageMappingRuleUserConfiguration
         {
-            get => VhdImageMappingRuleProfile?.UserConfiguration;
+            get => VhdImageMappingRuleProfile is null ? default : VhdImageMappingRuleProfile.UserConfiguration;
+            set
+            {
+                if (VhdImageMappingRuleProfile is null)
+                    VhdImageMappingRuleProfile = new VhdImageMappingRuleProfile();
+                VhdImageMappingRuleProfile.UserConfiguration = value;
+            }
         }
     }
 }
