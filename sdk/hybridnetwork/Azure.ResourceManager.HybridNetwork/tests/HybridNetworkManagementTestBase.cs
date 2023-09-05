@@ -8,6 +8,8 @@ using Azure.ResourceManager.Resources;
 using Azure.ResourceManager.TestFramework;
 using NUnit.Framework;
 using System.Threading.Tasks;
+using System.Text.Json;
+using System.IO;
 
 namespace Azure.ResourceManager.HybridNetwork.Tests
 {
@@ -15,6 +17,7 @@ namespace Azure.ResourceManager.HybridNetwork.Tests
     {
         protected ArmClient Client { get; private set; }
         protected SubscriptionResource DefaultSubscription { get; private set; }
+        private static readonly string TestAssetPath = Path.Combine(TestContext.CurrentContext.TestDirectory, "Scenario", "TestAssets");
 
         protected HybridNetworkManagementTestBase(bool isAsync, RecordedTestMode mode)
         : base(isAsync, mode)
@@ -26,19 +29,12 @@ namespace Azure.ResourceManager.HybridNetwork.Tests
         {
         }
 
-        [SetUp]
-        public async Task CreateCommonClient()
+        protected JsonElement ReadJsonFile(string filePath)
         {
-            Client = GetArmClient();
-            DefaultSubscription = await Client.GetDefaultSubscriptionAsync().ConfigureAwait(false);
-        }
+            var json = File.ReadAllText(Path.Combine(TestAssetPath, filePath));
+            JsonDocument document = JsonDocument.Parse(json);
 
-        protected async Task<ResourceGroupResource> CreateResourceGroup(SubscriptionResource subscription, string rgNamePrefix, AzureLocation location)
-        {
-            string rgName = Recording.GenerateAssetName(rgNamePrefix);
-            ResourceGroupData input = new ResourceGroupData(location);
-            var lro = await subscription.GetResourceGroups().CreateOrUpdateAsync(WaitUntil.Completed, rgName, input);
-            return lro.Value;
+            return document.RootElement;
         }
 
         protected async Task<PublisherResource> CreatePublisherResource(
@@ -57,9 +53,24 @@ namespace Azure.ResourceManager.HybridNetwork.Tests
             return lro.Value;
         }
 
+        protected async Task<ConfigurationGroupSchemaResource> CreateConfigGroupSchemaResource(
+            PublisherResource publisher,
+            string cgSchemaName,
+            AzureLocation location)
+        {
+            var cgSchemaData = new ConfigurationGroupSchemaData(location)
+            {
+                SchemaDefinition = ReadJsonFile("cg_schema.json").GetRawText(),
+            };
+            var lro = await publisher
+                .GetConfigurationGroupSchemas()
+                .CreateOrUpdateAsync(WaitUntil.Completed, cgSchemaName, cgSchemaData);
+
+            return lro.Value;
+        }
+
         protected async Task<ArtifactStoreResource> CreateArtifactStoreResource(
-            ResourceGroupResource resourceGroup,
-            string publisherName,
+            PublisherResource publisher,
             string artifactStoreName,
             AzureLocation location)
         {
@@ -68,18 +79,47 @@ namespace Azure.ResourceManager.HybridNetwork.Tests
                 StoreType = ArtifactStoreType.AzureContainerRegistry,
                 ReplicationStrategy = ArtifactReplicationStrategy.SingleReplication,
             };
-            var lro = await resourceGroup
-                .GetPublisher(publisherName).Value
+            var lro = await publisher
                 .GetArtifactStores()
                 .CreateOrUpdateAsync(WaitUntil.Completed, artifactStoreName, artifactStoreData);
 
             return lro.Value;
         }
 
+        protected async Task<NetworkFunctionDefinitionGroupResource> CreateNFDGResource(
+            PublisherResource publisher,
+            string nfdgName,
+            AzureLocation location)
+        {
+            var nfdgData = new NetworkFunctionDefinitionGroupData(location)
+            {
+                Description = "NFD for .NET SDK UTs."
+            };
+            var lro = await publisher
+                .GetNetworkFunctionDefinitionGroups()
+                .CreateOrUpdateAsync(WaitUntil.Completed, nfdgName, nfdgData);
+
+            return lro.Value;
+        }
+
+        protected async Task<NetworkServiceDesignGroupResource> CreateNSDGResource(
+            PublisherResource publisher,
+            string nsdgName,
+            AzureLocation location)
+        {
+            var nsdgData = new NetworkServiceDesignGroupData(location)
+            {
+                Description = "NSD for .NET SDK UTs."
+            };
+            var lro = await publisher
+                .GetNetworkServiceDesignGroups()
+                .CreateOrUpdateAsync(WaitUntil.Completed, nsdgName, nsdgData);
+
+            return lro.Value;
+        }
+
         protected async Task<ArtifactManifestResource> CreateArtifactManifestResource(
-            ResourceGroupResource resourceGroup,
-            string publisherName,
-            string artifactStoreName,
+            ArtifactStoreResource artifactStore,
             string artifactManifestName,
             AzureLocation location)
         {
@@ -91,9 +131,7 @@ namespace Azure.ResourceManager.HybridNetwork.Tests
             };
             var artifactManifestData = new ArtifactManifestData(location);
             artifactManifestData.Artifacts.Add(artifact);
-            var lro = await resourceGroup
-                .GetPublisher(publisherName).Value
-                .GetArtifactStore(artifactStoreName).Value
+            var lro = await artifactStore
                 .GetArtifactManifests()
                 .CreateOrUpdateAsync(WaitUntil.Completed, artifactManifestName, artifactManifestData);
 
