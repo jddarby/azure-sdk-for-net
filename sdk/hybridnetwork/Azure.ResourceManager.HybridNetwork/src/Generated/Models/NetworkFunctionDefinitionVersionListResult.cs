@@ -17,20 +17,20 @@ namespace Azure.ResourceManager.HybridNetwork.Models
         /// <summary> Initializes a new instance of NetworkFunctionDefinitionVersionListResult. </summary>
         internal NetworkFunctionDefinitionVersionListResult()
         {
-            Value = new ChangeTrackingList<NetworkFunctionDefinitionVersionData>();
+            Value = new ChangeTrackingList<HybridNetwork.NetworkFunctionDefinitionVersionData>();
         }
 
         /// <summary> Initializes a new instance of NetworkFunctionDefinitionVersionListResult. </summary>
         /// <param name="value"> A list of network function definition versions. </param>
         /// <param name="nextLink"> The URI to get the next set of results. </param>
-        internal NetworkFunctionDefinitionVersionListResult(IReadOnlyList<NetworkFunctionDefinitionVersionData> value, string nextLink)
+        internal NetworkFunctionDefinitionVersionListResult(IReadOnlyList<HybridNetwork.NetworkFunctionDefinitionVersionData> value, string nextLink)
         {
             Value = value;
             NextLink = nextLink;
         }
 
         /// <summary> A list of network function definition versions. </summary>
-        public IReadOnlyList<NetworkFunctionDefinitionVersionData> Value { get; }
+        public IReadOnlyList<HybridNetwork.NetworkFunctionDefinitionVersionData> Value { get; }
         /// <summary> The URI to get the next set of results. </summary>
         public string NextLink { get; }
     }

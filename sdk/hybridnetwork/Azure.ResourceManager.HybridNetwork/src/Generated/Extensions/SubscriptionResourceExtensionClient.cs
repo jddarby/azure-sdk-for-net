@@ -6,6 +6,7 @@
 #nullable disable
 
 using System.Threading;
+using Autorest.CSharp.Core;
 using Azure;
 using Azure.Core;
 using Azure.Core.Pipeline;
@@ -82,7 +83,7 @@ namespace Azure.ResourceManager.HybridNetwork
         {
             HttpMessage FirstPageRequest(int? pageSizeHint) => ConfigurationGroupValueconfigurationGroupValuesRestClient.CreateListBySubscriptionRequest(Id.SubscriptionId);
             HttpMessage NextPageRequest(int? pageSizeHint, string nextLink) => ConfigurationGroupValueconfigurationGroupValuesRestClient.CreateListBySubscriptionNextPageRequest(nextLink, Id.SubscriptionId);
-            return PageableHelpers.CreateAsyncPageable(FirstPageRequest, NextPageRequest, e => new ConfigurationGroupValueResource(Client, ConfigurationGroupValueData.DeserializeConfigurationGroupValueData(e)), ConfigurationGroupValueconfigurationGroupValuesClientDiagnostics, Pipeline, "SubscriptionResourceExtensionClient.GetConfigurationGroupValues", "value", "nextLink", cancellationToken);
+            return GeneratorPageableHelpers.CreateAsyncPageable(FirstPageRequest, NextPageRequest, e => new ConfigurationGroupValueResource(Client, ConfigurationGroupValueData.DeserializeConfigurationGroupValueData(e)), ConfigurationGroupValueconfigurationGroupValuesClientDiagnostics, Pipeline, "SubscriptionResourceExtensionClient.GetConfigurationGroupValues", "value", "nextLink", cancellationToken);
         }
 
         /// <summary>
@@ -104,7 +105,7 @@ namespace Azure.ResourceManager.HybridNetwork
         {
             HttpMessage FirstPageRequest(int? pageSizeHint) => ConfigurationGroupValueconfigurationGroupValuesRestClient.CreateListBySubscriptionRequest(Id.SubscriptionId);
             HttpMessage NextPageRequest(int? pageSizeHint, string nextLink) => ConfigurationGroupValueconfigurationGroupValuesRestClient.CreateListBySubscriptionNextPageRequest(nextLink, Id.SubscriptionId);
-            return PageableHelpers.CreatePageable(FirstPageRequest, NextPageRequest, e => new ConfigurationGroupValueResource(Client, ConfigurationGroupValueData.DeserializeConfigurationGroupValueData(e)), ConfigurationGroupValueconfigurationGroupValuesClientDiagnostics, Pipeline, "SubscriptionResourceExtensionClient.GetConfigurationGroupValues", "value", "nextLink", cancellationToken);
+            return GeneratorPageableHelpers.CreatePageable(FirstPageRequest, NextPageRequest, e => new ConfigurationGroupValueResource(Client, ConfigurationGroupValueData.DeserializeConfigurationGroupValueData(e)), ConfigurationGroupValueconfigurationGroupValuesClientDiagnostics, Pipeline, "SubscriptionResourceExtensionClient.GetConfigurationGroupValues", "value", "nextLink", cancellationToken);
         }
 
         /// <summary>
@@ -126,7 +127,7 @@ namespace Azure.ResourceManager.HybridNetwork
         {
             HttpMessage FirstPageRequest(int? pageSizeHint) => NetworkFunctionRestClient.CreateListBySubscriptionRequest(Id.SubscriptionId);
             HttpMessage NextPageRequest(int? pageSizeHint, string nextLink) => NetworkFunctionRestClient.CreateListBySubscriptionNextPageRequest(nextLink, Id.SubscriptionId);
-            return PageableHelpers.CreateAsyncPageable(FirstPageRequest, NextPageRequest, e => new NetworkFunctionResource(Client, NetworkFunctionData.DeserializeNetworkFunctionData(e)), NetworkFunctionClientDiagnostics, Pipeline, "SubscriptionResourceExtensionClient.GetNetworkFunctions", "value", "nextLink", cancellationToken);
+            return GeneratorPageableHelpers.CreateAsyncPageable(FirstPageRequest, NextPageRequest, e => new NetworkFunctionResource(Client, NetworkFunctionData.DeserializeNetworkFunctionData(e)), NetworkFunctionClientDiagnostics, Pipeline, "SubscriptionResourceExtensionClient.GetNetworkFunctions", "value", "nextLink", cancellationToken);
         }
 
         /// <summary>
@@ -148,7 +149,7 @@ namespace Azure.ResourceManager.HybridNetwork
         {
             HttpMessage FirstPageRequest(int? pageSizeHint) => NetworkFunctionRestClient.CreateListBySubscriptionRequest(Id.SubscriptionId);
             HttpMessage NextPageRequest(int? pageSizeHint, string nextLink) => NetworkFunctionRestClient.CreateListBySubscriptionNextPageRequest(nextLink, Id.SubscriptionId);
-            return PageableHelpers.CreatePageable(FirstPageRequest, NextPageRequest, e => new NetworkFunctionResource(Client, NetworkFunctionData.DeserializeNetworkFunctionData(e)), NetworkFunctionClientDiagnostics, Pipeline, "SubscriptionResourceExtensionClient.GetNetworkFunctions", "value", "nextLink", cancellationToken);
+            return GeneratorPageableHelpers.CreatePageable(FirstPageRequest, NextPageRequest, e => new NetworkFunctionResource(Client, NetworkFunctionData.DeserializeNetworkFunctionData(e)), NetworkFunctionClientDiagnostics, Pipeline, "SubscriptionResourceExtensionClient.GetNetworkFunctions", "value", "nextLink", cancellationToken);
         }
 
         /// <summary>
@@ -170,7 +171,7 @@ namespace Azure.ResourceManager.HybridNetwork
         {
             HttpMessage FirstPageRequest(int? pageSizeHint) => PublisherRestClient.CreateListBySubscriptionRequest(Id.SubscriptionId);
             HttpMessage NextPageRequest(int? pageSizeHint, string nextLink) => PublisherRestClient.CreateListBySubscriptionNextPageRequest(nextLink, Id.SubscriptionId);
-            return PageableHelpers.CreateAsyncPageable(FirstPageRequest, NextPageRequest, e => new PublisherResource(Client, PublisherData.DeserializePublisherData(e)), PublisherClientDiagnostics, Pipeline, "SubscriptionResourceExtensionClient.GetPublishers", "value", "nextLink", cancellationToken);
+            return GeneratorPageableHelpers.CreateAsyncPageable(FirstPageRequest, NextPageRequest, e => new PublisherResource(Client, PublisherData.DeserializePublisherData(e)), PublisherClientDiagnostics, Pipeline, "SubscriptionResourceExtensionClient.GetPublishers", "value", "nextLink", cancellationToken);
         }
 
         /// <summary>
@@ -192,7 +193,7 @@ namespace Azure.ResourceManager.HybridNetwork
         {
             HttpMessage FirstPageRequest(int? pageSizeHint) => PublisherRestClient.CreateListBySubscriptionRequest(Id.SubscriptionId);
             HttpMessage NextPageRequest(int? pageSizeHint, string nextLink) => PublisherRestClient.CreateListBySubscriptionNextPageRequest(nextLink, Id.SubscriptionId);
-            return PageableHelpers.CreatePageable(FirstPageRequest, NextPageRequest, e => new PublisherResource(Client, PublisherData.DeserializePublisherData(e)), PublisherClientDiagnostics, Pipeline, "SubscriptionResourceExtensionClient.GetPublishers", "value", "nextLink", cancellationToken);
+            return GeneratorPageableHelpers.CreatePageable(FirstPageRequest, NextPageRequest, e => new PublisherResource(Client, PublisherData.DeserializePublisherData(e)), PublisherClientDiagnostics, Pipeline, "SubscriptionResourceExtensionClient.GetPublishers", "value", "nextLink", cancellationToken);
         }
 
         /// <summary>
@@ -214,7 +215,7 @@ namespace Azure.ResourceManager.HybridNetwork
         {
             HttpMessage FirstPageRequest(int? pageSizeHint) => SiteRestClient.CreateListBySubscriptionRequest(Id.SubscriptionId);
             HttpMessage NextPageRequest(int? pageSizeHint, string nextLink) => SiteRestClient.CreateListBySubscriptionNextPageRequest(nextLink, Id.SubscriptionId);
-            return PageableHelpers.CreateAsyncPageable(FirstPageRequest, NextPageRequest, e => new SiteResource(Client, SiteData.DeserializeSiteData(e)), SiteClientDiagnostics, Pipeline, "SubscriptionResourceExtensionClient.GetSites", "value", "nextLink", cancellationToken);
+            return GeneratorPageableHelpers.CreateAsyncPageable(FirstPageRequest, NextPageRequest, e => new SiteResource(Client, SiteData.DeserializeSiteData(e)), SiteClientDiagnostics, Pipeline, "SubscriptionResourceExtensionClient.GetSites", "value", "nextLink", cancellationToken);
         }
 
         /// <summary>
@@ -236,7 +237,7 @@ namespace Azure.ResourceManager.HybridNetwork
         {
             HttpMessage FirstPageRequest(int? pageSizeHint) => SiteRestClient.CreateListBySubscriptionRequest(Id.SubscriptionId);
             HttpMessage NextPageRequest(int? pageSizeHint, string nextLink) => SiteRestClient.CreateListBySubscriptionNextPageRequest(nextLink, Id.SubscriptionId);
-            return PageableHelpers.CreatePageable(FirstPageRequest, NextPageRequest, e => new SiteResource(Client, SiteData.DeserializeSiteData(e)), SiteClientDiagnostics, Pipeline, "SubscriptionResourceExtensionClient.GetSites", "value", "nextLink", cancellationToken);
+            return GeneratorPageableHelpers.CreatePageable(FirstPageRequest, NextPageRequest, e => new SiteResource(Client, SiteData.DeserializeSiteData(e)), SiteClientDiagnostics, Pipeline, "SubscriptionResourceExtensionClient.GetSites", "value", "nextLink", cancellationToken);
         }
 
         /// <summary>
@@ -258,7 +259,7 @@ namespace Azure.ResourceManager.HybridNetwork
         {
             HttpMessage FirstPageRequest(int? pageSizeHint) => SiteNetworkServiceRestClient.CreateListBySubscriptionRequest(Id.SubscriptionId);
             HttpMessage NextPageRequest(int? pageSizeHint, string nextLink) => SiteNetworkServiceRestClient.CreateListBySubscriptionNextPageRequest(nextLink, Id.SubscriptionId);
-            return PageableHelpers.CreateAsyncPageable(FirstPageRequest, NextPageRequest, e => new SiteNetworkServiceResource(Client, SiteNetworkServiceData.DeserializeSiteNetworkServiceData(e)), SiteNetworkServiceClientDiagnostics, Pipeline, "SubscriptionResourceExtensionClient.GetSiteNetworkServices", "value", "nextLink", cancellationToken);
+            return GeneratorPageableHelpers.CreateAsyncPageable(FirstPageRequest, NextPageRequest, e => new SiteNetworkServiceResource(Client, SiteNetworkServiceData.DeserializeSiteNetworkServiceData(e)), SiteNetworkServiceClientDiagnostics, Pipeline, "SubscriptionResourceExtensionClient.GetSiteNetworkServices", "value", "nextLink", cancellationToken);
         }
 
         /// <summary>
@@ -280,7 +281,7 @@ namespace Azure.ResourceManager.HybridNetwork
         {
             HttpMessage FirstPageRequest(int? pageSizeHint) => SiteNetworkServiceRestClient.CreateListBySubscriptionRequest(Id.SubscriptionId);
             HttpMessage NextPageRequest(int? pageSizeHint, string nextLink) => SiteNetworkServiceRestClient.CreateListBySubscriptionNextPageRequest(nextLink, Id.SubscriptionId);
-            return PageableHelpers.CreatePageable(FirstPageRequest, NextPageRequest, e => new SiteNetworkServiceResource(Client, SiteNetworkServiceData.DeserializeSiteNetworkServiceData(e)), SiteNetworkServiceClientDiagnostics, Pipeline, "SubscriptionResourceExtensionClient.GetSiteNetworkServices", "value", "nextLink", cancellationToken);
+            return GeneratorPageableHelpers.CreatePageable(FirstPageRequest, NextPageRequest, e => new SiteNetworkServiceResource(Client, SiteNetworkServiceData.DeserializeSiteNetworkServiceData(e)), SiteNetworkServiceClientDiagnostics, Pipeline, "SubscriptionResourceExtensionClient.GetSiteNetworkServices", "value", "nextLink", cancellationToken);
         }
     }
 }

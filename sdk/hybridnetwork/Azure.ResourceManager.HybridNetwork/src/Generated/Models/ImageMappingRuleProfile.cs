@@ -11,7 +11,7 @@ namespace Azure.ResourceManager.HybridNetwork.Models
     internal partial class ImageMappingRuleProfile
     {
         /// <summary> Initializes a new instance of ImageMappingRuleProfile. </summary>
-        public ImageMappingRuleProfile()
+        internal ImageMappingRuleProfile()
         {
         }
 
@@ -23,6 +23,6 @@ namespace Azure.ResourceManager.HybridNetwork.Models
         }
 
         /// <summary> List of values. </summary>
-        public string UserConfiguration { get; set; }
+        public string UserConfiguration { get; }
     }
 }

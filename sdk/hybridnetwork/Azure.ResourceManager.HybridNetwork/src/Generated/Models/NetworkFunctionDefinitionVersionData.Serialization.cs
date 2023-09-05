@@ -18,11 +18,6 @@ namespace Azure.ResourceManager.HybridNetwork
         void IUtf8JsonSerializable.Write(Utf8JsonWriter writer)
         {
             writer.WriteStartObject();
-            if (Optional.IsDefined(Properties))
-            {
-                writer.WritePropertyName("properties"u8);
-                writer.WriteObjectValue(Properties);
-            }
             if (Optional.IsCollectionDefined(Tags))
             {
                 writer.WritePropertyName("tags"u8);
@@ -36,6 +31,24 @@ namespace Azure.ResourceManager.HybridNetwork
             }
             writer.WritePropertyName("location"u8);
             writer.WriteStringValue(Location);
+            writer.WritePropertyName("properties"u8);
+            writer.WriteStartObject();
+            if (Optional.IsDefined(Description))
+            {
+                writer.WritePropertyName("description"u8);
+                writer.WriteStringValue(Description);
+            }
+            if (Optional.IsDefined(DeployParameters))
+            {
+                writer.WritePropertyName("deployParameters"u8);
+                writer.WriteStringValue(DeployParameters);
+            }
+            if (Optional.IsDefined(NetworkFunctionType))
+            {
+                writer.WritePropertyName("networkFunctionType"u8);
+                writer.WriteStringValue(NetworkFunctionType.Value.ToString());
+            }
+            writer.WriteEndObject();
             writer.WriteEndObject();
         }
 
@@ -45,24 +58,19 @@ namespace Azure.ResourceManager.HybridNetwork
             {
                 return null;
             }
-            Optional<NetworkFunctionDefinitionVersionPropertiesFormat> properties = default;
             Optional<IDictionary<string, string>> tags = default;
             AzureLocation location = default;
             ResourceIdentifier id = default;
             string name = default;
             ResourceType type = default;
             Optional<SystemData> systemData = default;
+            Optional<ProvisioningState> provisioningState = default;
+            Optional<VersionState> versionState = default;
+            Optional<string> description = default;
+            Optional<string> deployParameters = default;
+            Optional<NetworkFunctionType> networkFunctionType = default;
             foreach (var property in element.EnumerateObject())
             {
-                if (property.NameEquals("properties"u8))
-                {
-                    if (property.Value.ValueKind == JsonValueKind.Null)
-                    {
-                        continue;
-                    }
-                    properties = NetworkFunctionDefinitionVersionPropertiesFormat.DeserializeNetworkFunctionDefinitionVersionPropertiesFormat(property.Value);
-                    continue;
-                }
                 if (property.NameEquals("tags"u8))
                 {
                     if (property.Value.ValueKind == JsonValueKind.Null)
@@ -106,8 +114,57 @@ namespace Azure.ResourceManager.HybridNetwork
                     systemData = JsonSerializer.Deserialize<SystemData>(property.Value.GetRawText());
                     continue;
                 }
+                if (property.NameEquals("properties"u8))
+                {
+                    if (property.Value.ValueKind == JsonValueKind.Null)
+                    {
+                        property.ThrowNonNullablePropertyIsNull();
+                        continue;
+                    }
+                    foreach (var property0 in property.Value.EnumerateObject())
+                    {
+                        if (property0.NameEquals("provisioningState"u8))
+                        {
+                            if (property0.Value.ValueKind == JsonValueKind.Null)
+                            {
+                                continue;
+                            }
+                            provisioningState = new ProvisioningState(property0.Value.GetString());
+                            continue;
+                        }
+                        if (property0.NameEquals("versionState"u8))
+                        {
+                            if (property0.Value.ValueKind == JsonValueKind.Null)
+                            {
+                                continue;
+                            }
+                            versionState = new VersionState(property0.Value.GetString());
+                            continue;
+                        }
+                        if (property0.NameEquals("description"u8))
+                        {
+                            description = property0.Value.GetString();
+                            continue;
+                        }
+                        if (property0.NameEquals("deployParameters"u8))
+                        {
+                            deployParameters = property0.Value.GetString();
+                            continue;
+                        }
+                        if (property0.NameEquals("networkFunctionType"u8))
+                        {
+                            if (property0.Value.ValueKind == JsonValueKind.Null)
+                            {
+                                continue;
+                            }
+                            networkFunctionType = new NetworkFunctionType(property0.Value.GetString());
+                            continue;
+                        }
+                    }
+                    continue;
+                }
             }
-            return new NetworkFunctionDefinitionVersionData(id, name, type, systemData.Value, Optional.ToDictionary(tags), location, properties.Value);
+            return new NetworkFunctionDefinitionVersionData(id, name, type, systemData.Value, Optional.ToDictionary(tags), location, Optional.ToNullable(provisioningState), Optional.ToNullable(versionState), description.Value, deployParameters.Value, Optional.ToNullable(networkFunctionType));
         }
     }
 }

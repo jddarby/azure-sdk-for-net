@@ -9,6 +9,7 @@ using System;
 using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
+using Autorest.CSharp.Core;
 using Azure;
 using Azure.Core;
 using Azure.Core.Pipeline;
@@ -157,7 +158,7 @@ namespace Azure.ResourceManager.HybridNetwork
 
             HttpMessage FirstPageRequest(int? pageSizeHint) => _networkFunctionDefinitionVersionOverviewProxyNetworkFunctionDefinitionVersionsRestClient.CreateListByNetworkFunctionDefinitionGroupRequest(Id.SubscriptionId, Id.Parent.Name, Id.Name, publisherScopeName, publisherLocationName);
             HttpMessage NextPageRequest(int? pageSizeHint, string nextLink) => _networkFunctionDefinitionVersionOverviewProxyNetworkFunctionDefinitionVersionsRestClient.CreateListByNetworkFunctionDefinitionGroupNextPageRequest(nextLink, Id.SubscriptionId, Id.Parent.Name, Id.Name, publisherScopeName, publisherLocationName);
-            return PageableHelpers.CreateAsyncPageable(FirstPageRequest, NextPageRequest, e => new NetworkFunctionDefinitionVersionOverviewResource(Client, NetworkFunctionDefinitionVersionOverviewData.DeserializeNetworkFunctionDefinitionVersionOverviewData(e)), _networkFunctionDefinitionVersionOverviewProxyNetworkFunctionDefinitionVersionsClientDiagnostics, Pipeline, "NetworkFunctionDefinitionVersionOverviewCollection.GetAll", "value", "nextLink", cancellationToken);
+            return GeneratorPageableHelpers.CreateAsyncPageable(FirstPageRequest, NextPageRequest, e => new NetworkFunctionDefinitionVersionOverviewResource(Client, NetworkFunctionDefinitionVersionOverviewData.DeserializeNetworkFunctionDefinitionVersionOverviewData(e)), _networkFunctionDefinitionVersionOverviewProxyNetworkFunctionDefinitionVersionsClientDiagnostics, Pipeline, "NetworkFunctionDefinitionVersionOverviewCollection.GetAll", "value", "nextLink", cancellationToken);
         }
 
         /// <summary>
@@ -185,7 +186,7 @@ namespace Azure.ResourceManager.HybridNetwork
 
             HttpMessage FirstPageRequest(int? pageSizeHint) => _networkFunctionDefinitionVersionOverviewProxyNetworkFunctionDefinitionVersionsRestClient.CreateListByNetworkFunctionDefinitionGroupRequest(Id.SubscriptionId, Id.Parent.Name, Id.Name, publisherScopeName, publisherLocationName);
             HttpMessage NextPageRequest(int? pageSizeHint, string nextLink) => _networkFunctionDefinitionVersionOverviewProxyNetworkFunctionDefinitionVersionsRestClient.CreateListByNetworkFunctionDefinitionGroupNextPageRequest(nextLink, Id.SubscriptionId, Id.Parent.Name, Id.Name, publisherScopeName, publisherLocationName);
-            return PageableHelpers.CreatePageable(FirstPageRequest, NextPageRequest, e => new NetworkFunctionDefinitionVersionOverviewResource(Client, NetworkFunctionDefinitionVersionOverviewData.DeserializeNetworkFunctionDefinitionVersionOverviewData(e)), _networkFunctionDefinitionVersionOverviewProxyNetworkFunctionDefinitionVersionsClientDiagnostics, Pipeline, "NetworkFunctionDefinitionVersionOverviewCollection.GetAll", "value", "nextLink", cancellationToken);
+            return GeneratorPageableHelpers.CreatePageable(FirstPageRequest, NextPageRequest, e => new NetworkFunctionDefinitionVersionOverviewResource(Client, NetworkFunctionDefinitionVersionOverviewData.DeserializeNetworkFunctionDefinitionVersionOverviewData(e)), _networkFunctionDefinitionVersionOverviewProxyNetworkFunctionDefinitionVersionsClientDiagnostics, Pipeline, "NetworkFunctionDefinitionVersionOverviewCollection.GetAll", "value", "nextLink", cancellationToken);
         }
 
         /// <summary>

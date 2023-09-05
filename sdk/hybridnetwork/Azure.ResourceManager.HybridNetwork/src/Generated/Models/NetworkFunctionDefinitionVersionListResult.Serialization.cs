@@ -20,7 +20,7 @@ namespace Azure.ResourceManager.HybridNetwork.Models
             {
                 return null;
             }
-            Optional<IReadOnlyList<NetworkFunctionDefinitionVersionData>> value = default;
+            Optional<IReadOnlyList<HybridNetwork.NetworkFunctionDefinitionVersionData>> value = default;
             Optional<string> nextLink = default;
             foreach (var property in element.EnumerateObject())
             {
@@ -30,10 +30,10 @@ namespace Azure.ResourceManager.HybridNetwork.Models
                     {
                         continue;
                     }
-                    List<NetworkFunctionDefinitionVersionData> array = new List<NetworkFunctionDefinitionVersionData>();
+                    List<HybridNetwork.NetworkFunctionDefinitionVersionData> array = new List<HybridNetwork.NetworkFunctionDefinitionVersionData>();
                     foreach (var item in property.Value.EnumerateArray())
                     {
-                        array.Add(NetworkFunctionDefinitionVersionData.DeserializeNetworkFunctionDefinitionVersionData(item));
+                        array.Add(HybridNetwork.NetworkFunctionDefinitionVersionData.DeserializeNetworkFunctionDefinitionVersionData(item));
                     }
                     value = array;
                     continue;

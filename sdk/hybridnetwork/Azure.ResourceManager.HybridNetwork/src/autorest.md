@@ -13,6 +13,9 @@ clear-output-folder: true
 skip-csproj: true
 modelerfour:
   flatten-payloads: false
+keep-orphaned-models:
+  - ContainerizedNetworkFunctionTemplate
+  - VirtualNetworkFunctionTemplate
 
  
 
