@@ -503,6 +503,7 @@ namespace Azure.ResourceManager.HybridNetwork.Models
         /// <param name="tags"> The tags. </param>
         /// <param name="location"> The location. </param>
         /// <param name="identity"> The managed identity of the Site network service, if configured. </param>
+        /// <param name="sku"> Sku of the site network service. </param>
         /// <param name="provisioningState"> The provisioning state of the site network service resource. </param>
         /// <param name="managedResourceGroupConfiguration"> Managed resource group configuration. </param>
         /// <param name="siteReferenceId"> The site details. </param>
@@ -515,13 +516,22 @@ namespace Azure.ResourceManager.HybridNetwork.Models
         /// <param name="lastStateNetworkServiceDesignVersionName"> The network service design version for the site network service. </param>
         /// <param name="lastStateConfigurationGroupValueReferences"> The last state of the site network service resource. </param>
         /// <returns> A new <see cref="HybridNetwork.SiteNetworkServiceData"/> instance for mocking. </returns>
-        public static SiteNetworkServiceData SiteNetworkServiceData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, SystemData systemData = null, IDictionary<string, string> tags = null, AzureLocation location = default, ManagedServiceIdentity identity = null, ProvisioningState? provisioningState = null, ManagedResourceGroupConfiguration managedResourceGroupConfiguration = null, ResourceIdentifier siteReferenceId = null, string publisherName = null, PublisherScope? publisherScope = null, string networkServiceDesignGroupName = null, string networkServiceDesignVersionName = null, string networkServiceDesignVersionOfferingLocation = null, IDictionary<string, WritableSubResource> desiredStateConfigurationGroupValueReferences = null, string lastStateNetworkServiceDesignVersionName = null, IReadOnlyDictionary<string, WritableSubResource> lastStateConfigurationGroupValueReferences = null)
+        public static SiteNetworkServiceData SiteNetworkServiceData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, SystemData systemData = null, IDictionary<string, string> tags = null, AzureLocation location = default, ManagedServiceIdentity identity = null, HybridNetworkSku sku = null, ProvisioningState? provisioningState = null, ManagedResourceGroupConfiguration managedResourceGroupConfiguration = null, ResourceIdentifier siteReferenceId = null, string publisherName = null, PublisherScope? publisherScope = null, string networkServiceDesignGroupName = null, string networkServiceDesignVersionName = null, string networkServiceDesignVersionOfferingLocation = null, IDictionary<string, WritableSubResource> desiredStateConfigurationGroupValueReferences = null, string lastStateNetworkServiceDesignVersionName = null, IReadOnlyDictionary<string, WritableSubResource> lastStateConfigurationGroupValueReferences = null)
         {
             tags ??= new Dictionary<string, string>();
             desiredStateConfigurationGroupValueReferences ??= new Dictionary<string, WritableSubResource>();
             lastStateConfigurationGroupValueReferences ??= new Dictionary<string, WritableSubResource>();
 
-            return new SiteNetworkServiceData(id, name, resourceType, systemData, tags, location, identity, provisioningState, managedResourceGroupConfiguration, siteReferenceId != null ? ResourceManagerModelFactory.WritableSubResource(siteReferenceId) : null, publisherName, publisherScope, networkServiceDesignGroupName, networkServiceDesignVersionName, networkServiceDesignVersionOfferingLocation, desiredStateConfigurationGroupValueReferences, lastStateNetworkServiceDesignVersionName, lastStateConfigurationGroupValueReferences);
+            return new SiteNetworkServiceData(id, name, resourceType, systemData, tags, location, identity, sku, provisioningState, managedResourceGroupConfiguration, siteReferenceId != null ? ResourceManagerModelFactory.WritableSubResource(siteReferenceId) : null, publisherName, publisherScope, networkServiceDesignGroupName, networkServiceDesignVersionName, networkServiceDesignVersionOfferingLocation, desiredStateConfigurationGroupValueReferences, lastStateNetworkServiceDesignVersionName, lastStateConfigurationGroupValueReferences);
+        }
+
+        /// <summary> Initializes a new instance of HybridNetworkSku. </summary>
+        /// <param name="name"> Name of this Sku. </param>
+        /// <param name="tier"> The SKU tier based on the SKU name. </param>
+        /// <returns> A new <see cref="Models.HybridNetworkSku"/> instance for mocking. </returns>
+        public static HybridNetworkSku HybridNetworkSku(HybridNetworkSkuName name = default, HybridNetworkSkuTier? tier = null)
+        {
+            return new HybridNetworkSku(name, tier);
         }
 
         /// <summary> Initializes a new instance of AzureContainerRegistryScopedTokenCredential. </summary>

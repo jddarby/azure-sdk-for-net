@@ -9,6 +9,7 @@ using System;
 using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
+using Autorest.CSharp.Core;
 using Azure;
 using Azure.Core;
 using Azure.Core.Pipeline;
@@ -158,7 +159,7 @@ namespace Azure.ResourceManager.HybridNetwork
 
             HttpMessage FirstPageRequest(int? pageSizeHint) => _proxyPublisherOverviewProxyPublisherRestClient.CreateListByLocationRequest(Id.SubscriptionId, publisherScopeName, publisherLocationName);
             HttpMessage NextPageRequest(int? pageSizeHint, string nextLink) => _proxyPublisherOverviewProxyPublisherRestClient.CreateListByLocationNextPageRequest(nextLink, Id.SubscriptionId, publisherScopeName, publisherLocationName);
-            return PageableHelpers.CreateAsyncPageable(FirstPageRequest, NextPageRequest, e => new ProxyPublisherOverviewResource(Client, ProxyPublisherOverviewData.DeserializeProxyPublisherOverviewData(e)), _proxyPublisherOverviewProxyPublisherClientDiagnostics, Pipeline, "ProxyPublisherOverviewCollection.GetAll", "value", "nextLink", cancellationToken);
+            return GeneratorPageableHelpers.CreateAsyncPageable(FirstPageRequest, NextPageRequest, e => new ProxyPublisherOverviewResource(Client, ProxyPublisherOverviewData.DeserializeProxyPublisherOverviewData(e)), _proxyPublisherOverviewProxyPublisherClientDiagnostics, Pipeline, "ProxyPublisherOverviewCollection.GetAll", "value", "nextLink", cancellationToken);
         }
 
         /// <summary>
@@ -186,7 +187,7 @@ namespace Azure.ResourceManager.HybridNetwork
 
             HttpMessage FirstPageRequest(int? pageSizeHint) => _proxyPublisherOverviewProxyPublisherRestClient.CreateListByLocationRequest(Id.SubscriptionId, publisherScopeName, publisherLocationName);
             HttpMessage NextPageRequest(int? pageSizeHint, string nextLink) => _proxyPublisherOverviewProxyPublisherRestClient.CreateListByLocationNextPageRequest(nextLink, Id.SubscriptionId, publisherScopeName, publisherLocationName);
-            return PageableHelpers.CreatePageable(FirstPageRequest, NextPageRequest, e => new ProxyPublisherOverviewResource(Client, ProxyPublisherOverviewData.DeserializeProxyPublisherOverviewData(e)), _proxyPublisherOverviewProxyPublisherClientDiagnostics, Pipeline, "ProxyPublisherOverviewCollection.GetAll", "value", "nextLink", cancellationToken);
+            return GeneratorPageableHelpers.CreatePageable(FirstPageRequest, NextPageRequest, e => new ProxyPublisherOverviewResource(Client, ProxyPublisherOverviewData.DeserializeProxyPublisherOverviewData(e)), _proxyPublisherOverviewProxyPublisherClientDiagnostics, Pipeline, "ProxyPublisherOverviewCollection.GetAll", "value", "nextLink", cancellationToken);
         }
 
         /// <summary>
