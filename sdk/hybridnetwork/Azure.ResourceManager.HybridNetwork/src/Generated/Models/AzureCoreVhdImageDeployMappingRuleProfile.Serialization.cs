@@ -10,24 +10,8 @@ using Azure.Core;
 
 namespace Azure.ResourceManager.HybridNetwork.Models
 {
-    public partial class AzureCoreVhdImageDeployMappingRuleProfile : IUtf8JsonSerializable
+    public partial class AzureCoreVhdImageDeployMappingRuleProfile
     {
-        void IUtf8JsonSerializable.Write(Utf8JsonWriter writer)
-        {
-            writer.WriteStartObject();
-            if (Optional.IsDefined(VhdImageMappingRuleProfile))
-            {
-                writer.WritePropertyName("vhdImageMappingRuleProfile"u8);
-                writer.WriteObjectValue(VhdImageMappingRuleProfile);
-            }
-            if (Optional.IsDefined(ApplicationEnablement))
-            {
-                writer.WritePropertyName("applicationEnablement"u8);
-                writer.WriteStringValue(ApplicationEnablement.Value.ToString());
-            }
-            writer.WriteEndObject();
-        }
-
         internal static AzureCoreVhdImageDeployMappingRuleProfile DeserializeAzureCoreVhdImageDeployMappingRuleProfile(JsonElement element)
         {
             if (element.ValueKind == JsonValueKind.Null)

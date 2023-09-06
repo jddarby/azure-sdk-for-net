@@ -12,18 +12,11 @@ namespace Azure.ResourceManager.HybridNetwork.Models
     /// Please note <see cref="VirtualNetworkFunctionTemplate"/> is the base class. According to the scenario, a derived class of the base class might need to be assigned here, or this property needs to be casted to one of the possible derived classes.
     /// The available derived classes include <see cref="AzureCoreNetworkFunctionTemplate"/> and <see cref="AzureOperatorNexusNetworkFunctionTemplate"/>.
     /// </summary>
-    public abstract partial class VirtualNetworkFunctionTemplate
+    internal abstract partial class VirtualNetworkFunctionTemplate
     {
         /// <summary> Initializes a new instance of VirtualNetworkFunctionTemplate. </summary>
         protected VirtualNetworkFunctionTemplate()
         {
-        }
-
-        /// <summary> Initializes a new instance of VirtualNetworkFunctionTemplate. </summary>
-        /// <param name="nfviType"> The network function type. </param>
-        internal VirtualNetworkFunctionTemplate(VirtualNetworkFunctionNfviType nfviType)
-        {
-            NfviType = nfviType;
         }
 
         /// <summary> The network function type. </summary>

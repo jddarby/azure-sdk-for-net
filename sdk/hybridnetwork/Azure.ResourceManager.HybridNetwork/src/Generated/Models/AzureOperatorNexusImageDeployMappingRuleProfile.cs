@@ -8,10 +8,10 @@
 namespace Azure.ResourceManager.HybridNetwork.Models
 {
     /// <summary> Azure Operator Distributed Services image deploy mapping rule profile. </summary>
-    public partial class AzureOperatorNexusImageDeployMappingRuleProfile : MappingRuleProfile
+    internal partial class AzureOperatorNexusImageDeployMappingRuleProfile : MappingRuleProfile
     {
         /// <summary> Initializes a new instance of AzureOperatorNexusImageDeployMappingRuleProfile. </summary>
-        public AzureOperatorNexusImageDeployMappingRuleProfile()
+        internal AzureOperatorNexusImageDeployMappingRuleProfile()
         {
         }
 
@@ -24,17 +24,11 @@ namespace Azure.ResourceManager.HybridNetwork.Models
         }
 
         /// <summary> The vhd mapping rule profile. </summary>
-        internal ImageMappingRuleProfile ImageMappingRuleProfile { get; set; }
+        internal ImageMappingRuleProfile ImageMappingRuleProfile { get; }
         /// <summary> List of values. </summary>
         public string ImageMappingRuleUserConfiguration
         {
-            get => ImageMappingRuleProfile is null ? default : ImageMappingRuleProfile.UserConfiguration;
-            set
-            {
-                if (ImageMappingRuleProfile is null)
-                    ImageMappingRuleProfile = new ImageMappingRuleProfile();
-                ImageMappingRuleProfile.UserConfiguration = value;
-            }
+            get => ImageMappingRuleProfile?.UserConfiguration;
         }
     }
 }

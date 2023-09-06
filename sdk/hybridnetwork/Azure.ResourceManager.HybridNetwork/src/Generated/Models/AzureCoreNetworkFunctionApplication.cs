@@ -12,20 +12,11 @@ namespace Azure.ResourceManager.HybridNetwork.Models
     /// Please note <see cref="AzureCoreNetworkFunctionApplication"/> is the base class. According to the scenario, a derived class of the base class might need to be assigned here, or this property needs to be casted to one of the possible derived classes.
     /// The available derived classes include <see cref="AzureCoreNetworkFunctionArmTemplateApplication"/> and <see cref="AzureCoreNetworkFunctionVhdApplication"/>.
     /// </summary>
-    public partial class AzureCoreNetworkFunctionApplication : NetworkFunctionApplication
+    internal partial class AzureCoreNetworkFunctionApplication : NetworkFunctionApplication
     {
         /// <summary> Initializes a new instance of AzureCoreNetworkFunctionApplication. </summary>
-        public AzureCoreNetworkFunctionApplication()
+        internal AzureCoreNetworkFunctionApplication()
         {
-        }
-
-        /// <summary> Initializes a new instance of AzureCoreNetworkFunctionApplication. </summary>
-        /// <param name="name"> The name of the network function application. </param>
-        /// <param name="dependsOnProfile"> Depends on profile definition. </param>
-        /// <param name="artifactType"> The artifact type. </param>
-        internal AzureCoreNetworkFunctionApplication(string name, DependsOnProfile dependsOnProfile, AzureCoreArtifactType artifactType) : base(name, dependsOnProfile)
-        {
-            ArtifactType = artifactType;
         }
 
         /// <summary> The artifact type. </summary>

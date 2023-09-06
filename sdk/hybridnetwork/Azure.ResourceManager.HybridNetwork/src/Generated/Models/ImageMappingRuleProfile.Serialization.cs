@@ -10,19 +10,8 @@ using Azure.Core;
 
 namespace Azure.ResourceManager.HybridNetwork.Models
 {
-    internal partial class ImageMappingRuleProfile : IUtf8JsonSerializable
+    internal partial class ImageMappingRuleProfile
     {
-        void IUtf8JsonSerializable.Write(Utf8JsonWriter writer)
-        {
-            writer.WriteStartObject();
-            if (Optional.IsDefined(UserConfiguration))
-            {
-                writer.WritePropertyName("userConfiguration"u8);
-                writer.WriteStringValue(UserConfiguration);
-            }
-            writer.WriteEndObject();
-        }
-
         internal static ImageMappingRuleProfile DeserializeImageMappingRuleProfile(JsonElement element)
         {
             if (element.ValueKind == JsonValueKind.Null)

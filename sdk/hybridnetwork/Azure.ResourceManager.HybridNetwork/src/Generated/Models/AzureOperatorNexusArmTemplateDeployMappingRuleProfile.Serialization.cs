@@ -10,24 +10,8 @@ using Azure.Core;
 
 namespace Azure.ResourceManager.HybridNetwork.Models
 {
-    public partial class AzureOperatorNexusArmTemplateDeployMappingRuleProfile : IUtf8JsonSerializable
+    internal partial class AzureOperatorNexusArmTemplateDeployMappingRuleProfile
     {
-        void IUtf8JsonSerializable.Write(Utf8JsonWriter writer)
-        {
-            writer.WriteStartObject();
-            if (Optional.IsDefined(TemplateMappingRuleProfile))
-            {
-                writer.WritePropertyName("templateMappingRuleProfile"u8);
-                writer.WriteObjectValue(TemplateMappingRuleProfile);
-            }
-            if (Optional.IsDefined(ApplicationEnablement))
-            {
-                writer.WritePropertyName("applicationEnablement"u8);
-                writer.WriteStringValue(ApplicationEnablement.Value.ToString());
-            }
-            writer.WriteEndObject();
-        }
-
         internal static AzureOperatorNexusArmTemplateDeployMappingRuleProfile DeserializeAzureOperatorNexusArmTemplateDeployMappingRuleProfile(JsonElement element)
         {
             if (element.ValueKind == JsonValueKind.Null)

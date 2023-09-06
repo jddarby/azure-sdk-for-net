@@ -10,24 +10,8 @@ using Azure.Core;
 
 namespace Azure.ResourceManager.HybridNetwork.Models
 {
-    public partial class AzureArcKubernetesDeployMappingRuleProfile : IUtf8JsonSerializable
+    public partial class AzureArcKubernetesDeployMappingRuleProfile
     {
-        void IUtf8JsonSerializable.Write(Utf8JsonWriter writer)
-        {
-            writer.WriteStartObject();
-            if (Optional.IsDefined(HelmMappingRuleProfile))
-            {
-                writer.WritePropertyName("helmMappingRuleProfile"u8);
-                writer.WriteObjectValue(HelmMappingRuleProfile);
-            }
-            if (Optional.IsDefined(ApplicationEnablement))
-            {
-                writer.WritePropertyName("applicationEnablement"u8);
-                writer.WriteStringValue(ApplicationEnablement.Value.ToString());
-            }
-            writer.WriteEndObject();
-        }
-
         internal static AzureArcKubernetesDeployMappingRuleProfile DeserializeAzureArcKubernetesDeployMappingRuleProfile(JsonElement element)
         {
             if (element.ValueKind == JsonValueKind.Null)

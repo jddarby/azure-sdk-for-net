@@ -11,7 +11,7 @@ namespace Azure.ResourceManager.HybridNetwork.Models
     public partial class AzureCoreArmTemplateDeployMappingRuleProfile : MappingRuleProfile
     {
         /// <summary> Initializes a new instance of AzureCoreArmTemplateDeployMappingRuleProfile. </summary>
-        public AzureCoreArmTemplateDeployMappingRuleProfile()
+        internal AzureCoreArmTemplateDeployMappingRuleProfile()
         {
         }
 
@@ -24,17 +24,11 @@ namespace Azure.ResourceManager.HybridNetwork.Models
         }
 
         /// <summary> The template mapping rule profile. </summary>
-        internal ArmTemplateMappingRuleProfile TemplateMappingRuleProfile { get; set; }
+        internal ArmTemplateMappingRuleProfile TemplateMappingRuleProfile { get; }
         /// <summary> List of template parameters. </summary>
         public string TemplateParameters
         {
-            get => TemplateMappingRuleProfile is null ? default : TemplateMappingRuleProfile.TemplateParameters;
-            set
-            {
-                if (TemplateMappingRuleProfile is null)
-                    TemplateMappingRuleProfile = new ArmTemplateMappingRuleProfile();
-                TemplateMappingRuleProfile.TemplateParameters = value;
-            }
+            get => TemplateMappingRuleProfile?.TemplateParameters;
         }
     }
 }
