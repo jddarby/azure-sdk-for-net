@@ -34,7 +34,7 @@ namespace Azure.ResourceManager.HybridNetwork
         /// <param name="versionState"> The network service design version state. </param>
         /// <param name="configurationGroupSchemaReferences"> Configuration Group Schema References. </param>
         /// <param name="nfvisFromSite"> The nfvis from the site. </param>
-        internal NetworkServiceDesignVersionOverviewData(ResourceIdentifier id, string name, ResourceType resourceType, SystemData systemData, string description, VersionState? versionState, IDictionary<string, ConfigurationGroupSchemaReferences> configurationGroupSchemaReferences, IDictionary<string, NfviDetails> nfvisFromSite) : base(id, name, resourceType, systemData)
+        internal NetworkServiceDesignVersionOverviewData(ResourceIdentifier id, string name, ResourceType resourceType, ResourceManager.Models.SystemData systemData, string description, VersionState? versionState, IDictionary<string, ConfigurationGroupSchemaReferences> configurationGroupSchemaReferences, IDictionary<string, NfviDetails> nfvisFromSite) : base(id, name, resourceType, systemData)
         {
             Description = description;
             VersionState = versionState;

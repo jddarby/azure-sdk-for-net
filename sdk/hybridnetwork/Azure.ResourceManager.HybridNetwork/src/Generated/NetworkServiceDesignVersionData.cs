@@ -45,7 +45,7 @@ namespace Azure.ResourceManager.HybridNetwork
         /// Please note <see cref="ResourceElementTemplate"/> is the base class. According to the scenario, a derived class of the base class might need to be assigned here, or this property needs to be casted to one of the possible derived classes.
         /// The available derived classes include <see cref="ArmResourceDefinitionResourceElementTemplateDetails"/> and <see cref="NetworkFunctionDefinitionResourceElementTemplateDetails"/>.
         /// </param>
-        internal NetworkServiceDesignVersionData(ResourceIdentifier id, string name, ResourceType resourceType, SystemData systemData, IDictionary<string, string> tags, AzureLocation location, ProvisioningState? provisioningState, VersionState? versionState, string description, IDictionary<string, WritableSubResource> configurationGroupSchemaReferences, IDictionary<string, NfviDetails> nfvisFromSite, IList<ResourceElementTemplate> resourceElementTemplates) : base(id, name, resourceType, systemData, tags, location)
+        internal NetworkServiceDesignVersionData(ResourceIdentifier id, string name, ResourceType resourceType, ResourceManager.Models.SystemData systemData, IDictionary<string, string> tags, AzureLocation location, ProvisioningState? provisioningState, VersionState? versionState, string description, IDictionary<string, WritableSubResource> configurationGroupSchemaReferences, IDictionary<string, NfviDetails> nfvisFromSite, IList<ResourceElementTemplate> resourceElementTemplates) : base(id, name, resourceType, systemData, tags, location)
         {
             ProvisioningState = provisioningState;
             VersionState = versionState;

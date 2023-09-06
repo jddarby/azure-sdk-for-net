@@ -35,7 +35,7 @@ namespace Azure.ResourceManager.HybridNetwork
         /// <param name="provisioningState"> The provisioning state of the ArtifactManifest resource. </param>
         /// <param name="artifactManifestState"> The artifact manifest state. </param>
         /// <param name="artifacts"> The artifacts list. </param>
-        internal ArtifactManifestData(ResourceIdentifier id, string name, ResourceType resourceType, SystemData systemData, IDictionary<string, string> tags, AzureLocation location, ProvisioningState? provisioningState, ArtifactManifestState? artifactManifestState, IList<ManifestArtifactFormat> artifacts) : base(id, name, resourceType, systemData, tags, location)
+        internal ArtifactManifestData(ResourceIdentifier id, string name, ResourceType resourceType, ResourceManager.Models.SystemData systemData, IDictionary<string, string> tags, AzureLocation location, ProvisioningState? provisioningState, ArtifactManifestState? artifactManifestState, IList<ManifestArtifactFormat> artifacts) : base(id, name, resourceType, systemData, tags, location)
         {
             ProvisioningState = provisioningState;
             ArtifactManifestState = artifactManifestState;

@@ -26,7 +26,7 @@ namespace Azure.ResourceManager.HybridNetwork.Models
         /// <param name="artifactType"> The artifact type. </param>
         /// <param name="artifactVersion"> The artifact version. </param>
         /// <param name="artifactState"> The artifact state. </param>
-        internal ProxyArtifactVersionsListOverview(ResourceIdentifier id, string name, ResourceType resourceType, SystemData systemData, ArtifactType? artifactType, string artifactVersion, ArtifactState? artifactState) : base(id, name, resourceType, systemData)
+        internal ProxyArtifactVersionsListOverview(ResourceIdentifier id, string name, ResourceType resourceType, ResourceManager.Models.SystemData systemData, ArtifactType? artifactType, string artifactVersion, ArtifactState? artifactState) : base(id, name, resourceType, systemData)
         {
             ArtifactType = artifactType;
             ArtifactVersion = artifactVersion;

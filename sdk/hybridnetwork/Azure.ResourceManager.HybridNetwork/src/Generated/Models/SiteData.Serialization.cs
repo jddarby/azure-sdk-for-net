@@ -59,7 +59,7 @@ namespace Azure.ResourceManager.HybridNetwork
             ResourceIdentifier id = default;
             string name = default;
             ResourceType type = default;
-            Optional<SystemData> systemData = default;
+            Optional<ResourceManager.Models.SystemData> systemData = default;
             Optional<ProvisioningState> provisioningState = default;
             Optional<IList<NFVIs>> nfvis = default;
             Optional<IReadOnlyList<WritableSubResource>> siteNetworkServiceReferences = default;
@@ -105,7 +105,7 @@ namespace Azure.ResourceManager.HybridNetwork
                     {
                         continue;
                     }
-                    systemData = JsonSerializer.Deserialize<SystemData>(property.Value.GetRawText());
+                    systemData = JsonSerializer.Deserialize<ResourceManager.Models.SystemData>(property.Value.GetRawText());
                     continue;
                 }
                 if (property.NameEquals("properties"u8))

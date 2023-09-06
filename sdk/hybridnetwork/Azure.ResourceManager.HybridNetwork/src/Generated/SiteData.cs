@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.HybridNetwork
         /// The available derived classes include <see cref="AzureArcK8SClusterNfviDetails"/>, <see cref="AzureCoreNfviDetails"/> and <see cref="AzureOperatorNexusClusterNfviDetails"/>.
         /// </param>
         /// <param name="siteNetworkServiceReferences"> The list of site network services on the site. </param>
-        internal SiteData(ResourceIdentifier id, string name, ResourceType resourceType, SystemData systemData, IDictionary<string, string> tags, AzureLocation location, ProvisioningState? provisioningState, IList<NFVIs> nfvis, IReadOnlyList<WritableSubResource> siteNetworkServiceReferences) : base(id, name, resourceType, systemData, tags, location)
+        internal SiteData(ResourceIdentifier id, string name, ResourceType resourceType, ResourceManager.Models.SystemData systemData, IDictionary<string, string> tags, AzureLocation location, ProvisioningState? provisioningState, IList<NFVIs> nfvis, IReadOnlyList<WritableSubResource> siteNetworkServiceReferences) : base(id, name, resourceType, systemData, tags, location)
         {
             ProvisioningState = provisioningState;
             Nfvis = nfvis;

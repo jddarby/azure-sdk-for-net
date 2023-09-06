@@ -34,7 +34,7 @@ namespace Azure.ResourceManager.HybridNetwork
         /// <param name="provisioningState"> The provisioning state of the Configuration group schema resource. </param>
         /// <param name="versionState"> The configuration group schema version state. </param>
         /// <param name="schemaDefinition"> Name and value pairs that define the configuration value. It can be a well formed escaped JSON string. </param>
-        internal ConfigurationGroupSchemaData(ResourceIdentifier id, string name, ResourceType resourceType, SystemData systemData, IDictionary<string, string> tags, AzureLocation location, ProvisioningState? provisioningState, VersionState? versionState, string schemaDefinition) : base(id, name, resourceType, systemData, tags, location)
+        internal ConfigurationGroupSchemaData(ResourceIdentifier id, string name, ResourceType resourceType, ResourceManager.Models.SystemData systemData, IDictionary<string, string> tags, AzureLocation location, ProvisioningState? provisioningState, VersionState? versionState, string schemaDefinition) : base(id, name, resourceType, systemData, tags, location)
         {
             ProvisioningState = provisioningState;
             VersionState = versionState;

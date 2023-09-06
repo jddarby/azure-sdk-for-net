@@ -46,7 +46,7 @@ namespace Azure.ResourceManager.HybridNetwork
         /// <param name="allowSoftwareUpdate"> Indicates if software updates are allowed during deployment. </param>
         /// <param name="deploymentValues"> The JSON-serialized deployment values from the user. </param>
         /// <param name="roleOverrideValues"> The role configuration override values from the user. </param>
-        internal NetworkFunctionData(ResourceIdentifier id, string name, ResourceType resourceType, SystemData systemData, IDictionary<string, string> tags, AzureLocation location, ETag? etag, ManagedServiceIdentity identity, ProvisioningState? provisioningState, string publisherName, PublisherScope? publisherScope, string networkFunctionDefinitionGroupName, string networkFunctionDefinitionVersion, string networkFunctionDefinitionOfferingLocation, NfviType? nfviType, string nfviId, bool? allowSoftwareUpdate, string deploymentValues, IList<string> roleOverrideValues) : base(id, name, resourceType, systemData, tags, location)
+        internal NetworkFunctionData(ResourceIdentifier id, string name, ResourceType resourceType, ResourceManager.Models.SystemData systemData, IDictionary<string, string> tags, AzureLocation location, ETag? etag, ManagedServiceIdentity identity, ProvisioningState? provisioningState, string publisherName, PublisherScope? publisherScope, string networkFunctionDefinitionGroupName, string networkFunctionDefinitionVersion, string networkFunctionDefinitionOfferingLocation, NfviType? nfviType, string nfviId, bool? allowSoftwareUpdate, string deploymentValues, IList<string> roleOverrideValues) : base(id, name, resourceType, systemData, tags, location)
         {
             ETag = etag;
             Identity = identity;

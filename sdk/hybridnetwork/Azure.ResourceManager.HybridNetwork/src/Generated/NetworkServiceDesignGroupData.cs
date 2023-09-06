@@ -33,7 +33,7 @@ namespace Azure.ResourceManager.HybridNetwork
         /// <param name="location"> The location. </param>
         /// <param name="provisioningState"> The provisioning state of the network service design groups resource. </param>
         /// <param name="description"> The network service design group description. </param>
-        internal NetworkServiceDesignGroupData(ResourceIdentifier id, string name, ResourceType resourceType, SystemData systemData, IDictionary<string, string> tags, AzureLocation location, ProvisioningState? provisioningState, string description) : base(id, name, resourceType, systemData, tags, location)
+        internal NetworkServiceDesignGroupData(ResourceIdentifier id, string name, ResourceType resourceType, ResourceManager.Models.SystemData systemData, IDictionary<string, string> tags, AzureLocation location, ProvisioningState? provisioningState, string description) : base(id, name, resourceType, systemData, tags, location)
         {
             ProvisioningState = provisioningState;
             Description = description;

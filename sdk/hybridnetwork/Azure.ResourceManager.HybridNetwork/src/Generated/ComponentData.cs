@@ -30,7 +30,7 @@ namespace Azure.ResourceManager.HybridNetwork
         /// <param name="provisioningState"> The provisioning state of the component resource. </param>
         /// <param name="deploymentProfile"> The JSON-serialized deployment profile of the component resource. </param>
         /// <param name="deploymentStatus"> The deployment status of the component resource. </param>
-        internal ComponentData(ResourceIdentifier id, string name, ResourceType resourceType, SystemData systemData, ProvisioningState? provisioningState, string deploymentProfile, DeploymentStatusProperties deploymentStatus) : base(id, name, resourceType, systemData)
+        internal ComponentData(ResourceIdentifier id, string name, ResourceType resourceType, ResourceManager.Models.SystemData systemData, ProvisioningState? provisioningState, string deploymentProfile, DeploymentStatusProperties deploymentStatus) : base(id, name, resourceType, systemData)
         {
             ProvisioningState = provisioningState;
             DeploymentProfile = deploymentProfile;

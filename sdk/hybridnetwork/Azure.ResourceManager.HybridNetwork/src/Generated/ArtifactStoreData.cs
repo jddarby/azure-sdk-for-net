@@ -36,7 +36,7 @@ namespace Azure.ResourceManager.HybridNetwork
         /// <param name="replicationStrategy"> The replication strategy. </param>
         /// <param name="managedResourceGroupConfiguration"></param>
         /// <param name="storageResourceId"> The created storage resource id. </param>
-        internal ArtifactStoreData(ResourceIdentifier id, string name, ResourceType resourceType, SystemData systemData, IDictionary<string, string> tags, AzureLocation location, ProvisioningState? provisioningState, ArtifactStoreType? storeType, ArtifactReplicationStrategy? replicationStrategy, ArtifactStorePropertiesFormatManagedResourceGroupConfiguration managedResourceGroupConfiguration, string storageResourceId) : base(id, name, resourceType, systemData, tags, location)
+        internal ArtifactStoreData(ResourceIdentifier id, string name, ResourceType resourceType, ResourceManager.Models.SystemData systemData, IDictionary<string, string> tags, AzureLocation location, ProvisioningState? provisioningState, ArtifactStoreType? storeType, ArtifactReplicationStrategy? replicationStrategy, ArtifactStorePropertiesFormatManagedResourceGroupConfiguration managedResourceGroupConfiguration, string storageResourceId) : base(id, name, resourceType, systemData, tags, location)
         {
             ProvisioningState = provisioningState;
             StoreType = storeType;

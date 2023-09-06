@@ -23,7 +23,7 @@ namespace Azure.ResourceManager.HybridNetwork.Models
         /// <param name="name"> The name. </param>
         /// <param name="resourceType"> The resourceType. </param>
         /// <param name="systemData"> The systemData. </param>
-        internal ProxyArtifactListOverview(ResourceIdentifier id, string name, ResourceType resourceType, SystemData systemData) : base(id, name, resourceType, systemData)
+        internal ProxyArtifactListOverview(ResourceIdentifier id, string name, ResourceType resourceType, ResourceManager.Models.SystemData systemData) : base(id, name, resourceType, systemData)
         {
         }
     }

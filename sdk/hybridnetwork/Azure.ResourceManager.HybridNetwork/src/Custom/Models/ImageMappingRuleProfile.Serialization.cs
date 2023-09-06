@@ -1,0 +1,40 @@
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License.
+
+using System.Text.Json;
+using Azure.Core;
+
+namespace Azure.ResourceManager.HybridNetwork.Models
+{
+    internal partial class ImageMappingRuleProfile : IUtf8JsonSerializable
+    {
+        void IUtf8JsonSerializable.Write(Utf8JsonWriter writer)
+        {
+            writer.WriteStartObject();
+            if (Optional.IsDefined(UserConfiguration))
+            {
+                writer.WritePropertyName("userConfiguration"u8);
+                writer.WriteStringValue(UserConfiguration);
+            }
+            writer.WriteEndObject();
+        }
+
+        internal static ImageMappingRuleProfile DeserializeImageMappingRuleProfile(JsonElement element)
+        {
+            if (element.ValueKind == JsonValueKind.Null)
+            {
+                return null;
+            }
+            Optional<string> userConfiguration = default;
+            foreach (var property in element.EnumerateObject())
+            {
+                if (property.NameEquals("userConfiguration"u8))
+                {
+                    userConfiguration = property.Value.GetString();
+                    continue;
+                }
+            }
+            return new ImageMappingRuleProfile(userConfiguration.Value);
+        }
+    }
+}

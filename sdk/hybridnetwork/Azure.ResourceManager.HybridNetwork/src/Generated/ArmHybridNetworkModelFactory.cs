@@ -30,7 +30,7 @@ namespace Azure.ResourceManager.HybridNetwork.Models
         /// <param name="versionState"> The configuration group schema version state. </param>
         /// <param name="schemaDefinition"> Name and value pairs that define the configuration value. It can be a well formed escaped JSON string. </param>
         /// <returns> A new <see cref="HybridNetwork.ConfigurationGroupSchemaData"/> instance for mocking. </returns>
-        public static ConfigurationGroupSchemaData ConfigurationGroupSchemaData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, SystemData systemData = null, IDictionary<string, string> tags = null, AzureLocation location = default, ProvisioningState? provisioningState = null, VersionState? versionState = null, string schemaDefinition = null)
+        public static ConfigurationGroupSchemaData ConfigurationGroupSchemaData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, ResourceManager.Models.SystemData systemData = null, IDictionary<string, string> tags = null, AzureLocation location = default, ProvisioningState? provisioningState = null, VersionState? versionState = null, string schemaDefinition = null)
         {
             tags ??= new Dictionary<string, string>();
 
@@ -51,7 +51,7 @@ namespace Azure.ResourceManager.HybridNetwork.Models
         /// <param name="configurationGroupSchemaOfferingLocation"> The location of the configuration group schema offering. </param>
         /// <param name="configurationValue"> Name and value pairs that define the configuration value. It can be a well formed escaped JSON string. </param>
         /// <returns> A new <see cref="HybridNetwork.ConfigurationGroupValueData"/> instance for mocking. </returns>
-        public static ConfigurationGroupValueData ConfigurationGroupValueData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, SystemData systemData = null, IDictionary<string, string> tags = null, AzureLocation location = default, ProvisioningState? provisioningState = null, string publisherName = null, PublisherScope? publisherScope = null, string configurationGroupSchemaName = null, string configurationGroupSchemaOfferingLocation = null, string configurationValue = null)
+        public static ConfigurationGroupValueData ConfigurationGroupValueData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, ResourceManager.Models.SystemData systemData = null, IDictionary<string, string> tags = null, AzureLocation location = default, ProvisioningState? provisioningState = null, string publisherName = null, PublisherScope? publisherScope = null, string configurationGroupSchemaName = null, string configurationGroupSchemaOfferingLocation = null, string configurationValue = null)
         {
             tags ??= new Dictionary<string, string>();
 
@@ -79,7 +79,7 @@ namespace Azure.ResourceManager.HybridNetwork.Models
         /// <param name="deploymentValues"> The JSON-serialized deployment values from the user. </param>
         /// <param name="roleOverrideValues"> The role configuration override values from the user. </param>
         /// <returns> A new <see cref="HybridNetwork.NetworkFunctionData"/> instance for mocking. </returns>
-        public static NetworkFunctionData NetworkFunctionData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, SystemData systemData = null, IDictionary<string, string> tags = null, AzureLocation location = default, ETag? etag = null, ManagedServiceIdentity identity = null, ProvisioningState? provisioningState = null, string publisherName = null, PublisherScope? publisherScope = null, string networkFunctionDefinitionGroupName = null, string networkFunctionDefinitionVersion = null, string networkFunctionDefinitionOfferingLocation = null, NfviType? nfviType = null, string nfviId = null, bool? allowSoftwareUpdate = null, string deploymentValues = null, IEnumerable<string> roleOverrideValues = null)
+        public static NetworkFunctionData NetworkFunctionData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, ResourceManager.Models.SystemData systemData = null, IDictionary<string, string> tags = null, AzureLocation location = default, ETag? etag = null, ManagedServiceIdentity identity = null, ProvisioningState? provisioningState = null, string publisherName = null, PublisherScope? publisherScope = null, string networkFunctionDefinitionGroupName = null, string networkFunctionDefinitionVersion = null, string networkFunctionDefinitionOfferingLocation = null, NfviType? nfviType = null, string nfviId = null, bool? allowSoftwareUpdate = null, string deploymentValues = null, IEnumerable<string> roleOverrideValues = null)
         {
             tags ??= new Dictionary<string, string>();
             roleOverrideValues ??= new List<string>();
@@ -96,7 +96,7 @@ namespace Azure.ResourceManager.HybridNetwork.Models
         /// <param name="deploymentProfile"> The JSON-serialized deployment profile of the component resource. </param>
         /// <param name="deploymentStatus"> The deployment status of the component resource. </param>
         /// <returns> A new <see cref="HybridNetwork.ComponentData"/> instance for mocking. </returns>
-        public static ComponentData ComponentData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, SystemData systemData = null, ProvisioningState? provisioningState = null, string deploymentProfile = null, DeploymentStatusProperties deploymentStatus = null)
+        public static ComponentData ComponentData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, ResourceManager.Models.SystemData systemData = null, ProvisioningState? provisioningState = null, string deploymentProfile = null, DeploymentStatusProperties deploymentStatus = null)
         {
             return new ComponentData(id, name, resourceType, systemData, provisioningState, deploymentProfile, deploymentStatus);
         }
@@ -220,7 +220,7 @@ namespace Azure.ResourceManager.HybridNetwork.Models
         /// <param name="provisioningState"> The provisioning state of the network function definition groups resource. </param>
         /// <param name="description"> The network function definition group description. </param>
         /// <returns> A new <see cref="HybridNetwork.NetworkFunctionDefinitionGroupData"/> instance for mocking. </returns>
-        public static NetworkFunctionDefinitionGroupData NetworkFunctionDefinitionGroupData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, SystemData systemData = null, IDictionary<string, string> tags = null, AzureLocation location = default, ProvisioningState? provisioningState = null, string description = null)
+        public static NetworkFunctionDefinitionGroupData NetworkFunctionDefinitionGroupData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, ResourceManager.Models.SystemData systemData = null, IDictionary<string, string> tags = null, AzureLocation location = default, ProvisioningState? provisioningState = null, string description = null)
         {
             tags ??= new Dictionary<string, string>();
 
@@ -237,7 +237,7 @@ namespace Azure.ResourceManager.HybridNetwork.Models
         /// <param name="provisioningState"> The provisioning state of the network service design groups resource. </param>
         /// <param name="description"> The network service design group description. </param>
         /// <returns> A new <see cref="HybridNetwork.NetworkServiceDesignGroupData"/> instance for mocking. </returns>
-        public static NetworkServiceDesignGroupData NetworkServiceDesignGroupData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, SystemData systemData = null, IDictionary<string, string> tags = null, AzureLocation location = default, ProvisioningState? provisioningState = null, string description = null)
+        public static NetworkServiceDesignGroupData NetworkServiceDesignGroupData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, ResourceManager.Models.SystemData systemData = null, IDictionary<string, string> tags = null, AzureLocation location = default, ProvisioningState? provisioningState = null, string description = null)
         {
             tags ??= new Dictionary<string, string>();
 
@@ -262,7 +262,7 @@ namespace Azure.ResourceManager.HybridNetwork.Models
         /// The available derived classes include <see cref="ArmResourceDefinitionResourceElementTemplateDetails"/> and <see cref="NetworkFunctionDefinitionResourceElementTemplateDetails"/>.
         /// </param>
         /// <returns> A new <see cref="HybridNetwork.NetworkServiceDesignVersionData"/> instance for mocking. </returns>
-        public static NetworkServiceDesignVersionData NetworkServiceDesignVersionData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, SystemData systemData = null, IDictionary<string, string> tags = null, AzureLocation location = default, ProvisioningState? provisioningState = null, VersionState? versionState = null, string description = null, IDictionary<string, WritableSubResource> configurationGroupSchemaReferences = null, IDictionary<string, NfviDetails> nfvisFromSite = null, IEnumerable<ResourceElementTemplate> resourceElementTemplates = null)
+        public static NetworkServiceDesignVersionData NetworkServiceDesignVersionData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, ResourceManager.Models.SystemData systemData = null, IDictionary<string, string> tags = null, AzureLocation location = default, ProvisioningState? provisioningState = null, VersionState? versionState = null, string description = null, IDictionary<string, WritableSubResource> configurationGroupSchemaReferences = null, IDictionary<string, NfviDetails> nfvisFromSite = null, IEnumerable<ResourceElementTemplate> resourceElementTemplates = null)
         {
             tags ??= new Dictionary<string, string>();
             configurationGroupSchemaReferences ??= new Dictionary<string, WritableSubResource>();
@@ -278,7 +278,7 @@ namespace Azure.ResourceManager.HybridNetwork.Models
         /// <param name="resourceType"> The resourceType. </param>
         /// <param name="systemData"> The systemData. </param>
         /// <returns> A new <see cref="HybridNetwork.ProxyPublisherOverviewData"/> instance for mocking. </returns>
-        public static ProxyPublisherOverviewData ProxyPublisherOverviewData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, SystemData systemData = null)
+        public static ProxyPublisherOverviewData ProxyPublisherOverviewData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, ResourceManager.Models.SystemData systemData = null)
         {
             return new ProxyPublisherOverviewData(id, name, resourceType, systemData);
         }
@@ -290,7 +290,7 @@ namespace Azure.ResourceManager.HybridNetwork.Models
         /// <param name="systemData"> The systemData. </param>
         /// <param name="description"> Network function definition group description. </param>
         /// <returns> A new <see cref="HybridNetwork.NetworkFunctionDefinitionGroupOverviewData"/> instance for mocking. </returns>
-        public static NetworkFunctionDefinitionGroupOverviewData NetworkFunctionDefinitionGroupOverviewData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, SystemData systemData = null, string description = null)
+        public static NetworkFunctionDefinitionGroupOverviewData NetworkFunctionDefinitionGroupOverviewData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, ResourceManager.Models.SystemData systemData = null, string description = null)
         {
             return new NetworkFunctionDefinitionGroupOverviewData(id, name, resourceType, systemData, description);
         }
@@ -311,7 +311,7 @@ namespace Azure.ResourceManager.HybridNetwork.Models
         /// The available derived classes include <see cref="ArmTemplateApplicationOverview"/>, <see cref="HelmPackageApplicationOverview"/> and <see cref="VhdImageFileApplicationOverview"/>.
         /// </param>
         /// <returns> A new <see cref="HybridNetwork.NetworkFunctionDefinitionVersionOverviewData"/> instance for mocking. </returns>
-        public static NetworkFunctionDefinitionVersionOverviewData NetworkFunctionDefinitionVersionOverviewData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, SystemData systemData = null, string description = null, VersionState? versionState = null, NetworkFunctionType? networkFunctionType = null, NfviType? nfviType = null, string deployParameters = null, IEnumerable<NetworkFunctionDefinitionApplicationOverview> networkFunctionApplications = null)
+        public static NetworkFunctionDefinitionVersionOverviewData NetworkFunctionDefinitionVersionOverviewData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, ResourceManager.Models.SystemData systemData = null, string description = null, VersionState? versionState = null, NetworkFunctionType? networkFunctionType = null, NfviType? nfviType = null, string deployParameters = null, IEnumerable<NetworkFunctionDefinitionApplicationOverview> networkFunctionApplications = null)
         {
             networkFunctionApplications ??= new List<NetworkFunctionDefinitionApplicationOverview>();
 
@@ -334,7 +334,7 @@ namespace Azure.ResourceManager.HybridNetwork.Models
         /// <param name="systemData"> The systemData. </param>
         /// <param name="description"> Network service design group properties. </param>
         /// <returns> A new <see cref="HybridNetwork.NetworkServiceDesignGroupOverviewData"/> instance for mocking. </returns>
-        public static NetworkServiceDesignGroupOverviewData NetworkServiceDesignGroupOverviewData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, SystemData systemData = null, string description = null)
+        public static NetworkServiceDesignGroupOverviewData NetworkServiceDesignGroupOverviewData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, ResourceManager.Models.SystemData systemData = null, string description = null)
         {
             return new NetworkServiceDesignGroupOverviewData(id, name, resourceType, systemData, description);
         }
@@ -349,7 +349,7 @@ namespace Azure.ResourceManager.HybridNetwork.Models
         /// <param name="configurationGroupSchemaReferences"> Configuration Group Schema References. </param>
         /// <param name="nfvisFromSite"> The nfvis from the site. </param>
         /// <returns> A new <see cref="HybridNetwork.NetworkServiceDesignVersionOverviewData"/> instance for mocking. </returns>
-        public static NetworkServiceDesignVersionOverviewData NetworkServiceDesignVersionOverviewData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, SystemData systemData = null, string description = null, VersionState? versionState = null, IDictionary<string, ConfigurationGroupSchemaReferences> configurationGroupSchemaReferences = null, IDictionary<string, NfviDetails> nfvisFromSite = null)
+        public static NetworkServiceDesignVersionOverviewData NetworkServiceDesignVersionOverviewData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, ResourceManager.Models.SystemData systemData = null, string description = null, VersionState? versionState = null, IDictionary<string, ConfigurationGroupSchemaReferences> configurationGroupSchemaReferences = null, IDictionary<string, NfviDetails> nfvisFromSite = null)
         {
             configurationGroupSchemaReferences ??= new Dictionary<string, ConfigurationGroupSchemaReferences>();
             nfvisFromSite ??= new Dictionary<string, NfviDetails>();
@@ -368,7 +368,7 @@ namespace Azure.ResourceManager.HybridNetwork.Models
         /// <param name="provisioningState"> The provisioning state of the publisher resource. </param>
         /// <param name="scope"> The publisher scope. </param>
         /// <returns> A new <see cref="HybridNetwork.PublisherData"/> instance for mocking. </returns>
-        public static PublisherData PublisherData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, SystemData systemData = null, IDictionary<string, string> tags = null, AzureLocation location = default, ManagedServiceIdentity identity = null, ProvisioningState? provisioningState = null, PublisherScope? scope = null)
+        public static PublisherData PublisherData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, ResourceManager.Models.SystemData systemData = null, IDictionary<string, string> tags = null, AzureLocation location = default, ManagedServiceIdentity identity = null, ProvisioningState? provisioningState = null, PublisherScope? scope = null)
         {
             tags ??= new Dictionary<string, string>();
 
@@ -388,7 +388,7 @@ namespace Azure.ResourceManager.HybridNetwork.Models
         /// <param name="managedResourceGroupConfiguration"></param>
         /// <param name="storageResourceId"> The created storage resource id. </param>
         /// <returns> A new <see cref="HybridNetwork.ArtifactStoreData"/> instance for mocking. </returns>
-        public static ArtifactStoreData ArtifactStoreData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, SystemData systemData = null, IDictionary<string, string> tags = null, AzureLocation location = default, ProvisioningState? provisioningState = null, ArtifactStoreType? storeType = null, ArtifactReplicationStrategy? replicationStrategy = null, ArtifactStorePropertiesFormatManagedResourceGroupConfiguration managedResourceGroupConfiguration = null, string storageResourceId = null)
+        public static ArtifactStoreData ArtifactStoreData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, ResourceManager.Models.SystemData systemData = null, IDictionary<string, string> tags = null, AzureLocation location = default, ProvisioningState? provisioningState = null, ArtifactStoreType? storeType = null, ArtifactReplicationStrategy? replicationStrategy = null, ArtifactStorePropertiesFormatManagedResourceGroupConfiguration managedResourceGroupConfiguration = null, string storageResourceId = null)
         {
             tags ??= new Dictionary<string, string>();
 
@@ -406,7 +406,7 @@ namespace Azure.ResourceManager.HybridNetwork.Models
         /// <param name="artifactManifestState"> The artifact manifest state. </param>
         /// <param name="artifacts"> The artifacts list. </param>
         /// <returns> A new <see cref="HybridNetwork.ArtifactManifestData"/> instance for mocking. </returns>
-        public static ArtifactManifestData ArtifactManifestData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, SystemData systemData = null, IDictionary<string, string> tags = null, AzureLocation location = default, ProvisioningState? provisioningState = null, ArtifactManifestState? artifactManifestState = null, IEnumerable<ManifestArtifactFormat> artifacts = null)
+        public static ArtifactManifestData ArtifactManifestData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, ResourceManager.Models.SystemData systemData = null, IDictionary<string, string> tags = null, AzureLocation location = default, ProvisioningState? provisioningState = null, ArtifactManifestState? artifactManifestState = null, IEnumerable<ManifestArtifactFormat> artifacts = null)
         {
             tags ??= new Dictionary<string, string>();
             artifacts ??= new List<ManifestArtifactFormat>();
@@ -420,7 +420,7 @@ namespace Azure.ResourceManager.HybridNetwork.Models
         /// <param name="resourceType"> The resourceType. </param>
         /// <param name="systemData"> The systemData. </param>
         /// <returns> A new <see cref="Models.ProxyArtifactListOverview"/> instance for mocking. </returns>
-        public static ProxyArtifactListOverview ProxyArtifactListOverview(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, SystemData systemData = null)
+        public static ProxyArtifactListOverview ProxyArtifactListOverview(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, ResourceManager.Models.SystemData systemData = null)
         {
             return new ProxyArtifactListOverview(id, name, resourceType, systemData);
         }
@@ -434,7 +434,7 @@ namespace Azure.ResourceManager.HybridNetwork.Models
         /// <param name="artifactVersion"> The artifact version. </param>
         /// <param name="artifactState"> The artifact state. </param>
         /// <returns> A new <see cref="Models.ProxyArtifactVersionsListOverview"/> instance for mocking. </returns>
-        public static ProxyArtifactVersionsListOverview ProxyArtifactVersionsListOverview(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, SystemData systemData = null, ArtifactType? artifactType = null, string artifactVersion = null, ArtifactState? artifactState = null)
+        public static ProxyArtifactVersionsListOverview ProxyArtifactVersionsListOverview(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, ResourceManager.Models.SystemData systemData = null, ArtifactType? artifactType = null, string artifactVersion = null, ArtifactState? artifactState = null)
         {
             return new ProxyArtifactVersionsListOverview(id, name, resourceType, systemData, artifactType, artifactVersion, artifactState);
         }
@@ -454,7 +454,7 @@ namespace Azure.ResourceManager.HybridNetwork.Models
         /// </param>
         /// <param name="siteNetworkServiceReferences"> The list of site network services on the site. </param>
         /// <returns> A new <see cref="HybridNetwork.SiteData"/> instance for mocking. </returns>
-        public static SiteData SiteData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, SystemData systemData = null, IDictionary<string, string> tags = null, AzureLocation location = default, ProvisioningState? provisioningState = null, IEnumerable<NFVIs> nfvis = null, IEnumerable<WritableSubResource> siteNetworkServiceReferences = null)
+        public static SiteData SiteData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, ResourceManager.Models.SystemData systemData = null, IDictionary<string, string> tags = null, AzureLocation location = default, ProvisioningState? provisioningState = null, IEnumerable<NFVIs> nfvis = null, IEnumerable<WritableSubResource> siteNetworkServiceReferences = null)
         {
             tags ??= new Dictionary<string, string>();
             nfvis ??= new List<NFVIs>();
@@ -484,7 +484,7 @@ namespace Azure.ResourceManager.HybridNetwork.Models
         /// <param name="lastStateNetworkServiceDesignVersionName"> The network service design version for the site network service. </param>
         /// <param name="lastStateConfigurationGroupValueReferences"> The last state of the site network service resource. </param>
         /// <returns> A new <see cref="HybridNetwork.SiteNetworkServiceData"/> instance for mocking. </returns>
-        public static SiteNetworkServiceData SiteNetworkServiceData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, SystemData systemData = null, IDictionary<string, string> tags = null, AzureLocation location = default, ManagedServiceIdentity identity = null, HybridNetworkSku sku = null, ProvisioningState? provisioningState = null, ManagedResourceGroupConfiguration managedResourceGroupConfiguration = null, ResourceIdentifier siteReferenceId = null, string publisherName = null, PublisherScope? publisherScope = null, string networkServiceDesignGroupName = null, string networkServiceDesignVersionName = null, string networkServiceDesignVersionOfferingLocation = null, IDictionary<string, WritableSubResource> desiredStateConfigurationGroupValueReferences = null, string lastStateNetworkServiceDesignVersionName = null, IReadOnlyDictionary<string, WritableSubResource> lastStateConfigurationGroupValueReferences = null)
+        public static SiteNetworkServiceData SiteNetworkServiceData(ResourceIdentifier id = null, string name = null, ResourceType resourceType = default, ResourceManager.Models.SystemData systemData = null, IDictionary<string, string> tags = null, AzureLocation location = default, ManagedServiceIdentity identity = null, HybridNetworkSku sku = null, ProvisioningState? provisioningState = null, ManagedResourceGroupConfiguration managedResourceGroupConfiguration = null, ResourceIdentifier siteReferenceId = null, string publisherName = null, PublisherScope? publisherScope = null, string networkServiceDesignGroupName = null, string networkServiceDesignVersionName = null, string networkServiceDesignVersionOfferingLocation = null, IDictionary<string, WritableSubResource> desiredStateConfigurationGroupValueReferences = null, string lastStateNetworkServiceDesignVersionName = null, IReadOnlyDictionary<string, WritableSubResource> lastStateConfigurationGroupValueReferences = null)
         {
             tags ??= new Dictionary<string, string>();
             desiredStateConfigurationGroupValueReferences ??= new Dictionary<string, WritableSubResource>();

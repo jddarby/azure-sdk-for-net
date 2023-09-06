@@ -34,7 +34,7 @@ namespace Azure.ResourceManager.HybridNetwork
         /// <param name="identity"> The managed identity of the publisher, if configured. </param>
         /// <param name="provisioningState"> The provisioning state of the publisher resource. </param>
         /// <param name="scope"> The publisher scope. </param>
-        internal PublisherData(ResourceIdentifier id, string name, ResourceType resourceType, SystemData systemData, IDictionary<string, string> tags, AzureLocation location, ManagedServiceIdentity identity, ProvisioningState? provisioningState, PublisherScope? scope) : base(id, name, resourceType, systemData, tags, location)
+        internal PublisherData(ResourceIdentifier id, string name, ResourceType resourceType, ResourceManager.Models.SystemData systemData, IDictionary<string, string> tags, AzureLocation location, ManagedServiceIdentity identity, ProvisioningState? provisioningState, PublisherScope? scope) : base(id, name, resourceType, systemData, tags, location)
         {
             Identity = identity;
             ProvisioningState = provisioningState;

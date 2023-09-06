@@ -37,7 +37,7 @@ namespace Azure.ResourceManager.HybridNetwork
         /// <param name="configurationGroupSchemaName"> The configuration group schema name. </param>
         /// <param name="configurationGroupSchemaOfferingLocation"> The location of the configuration group schema offering. </param>
         /// <param name="configurationValue"> Name and value pairs that define the configuration value. It can be a well formed escaped JSON string. </param>
-        internal ConfigurationGroupValueData(ResourceIdentifier id, string name, ResourceType resourceType, SystemData systemData, IDictionary<string, string> tags, AzureLocation location, ProvisioningState? provisioningState, string publisherName, PublisherScope? publisherScope, string configurationGroupSchemaName, string configurationGroupSchemaOfferingLocation, string configurationValue) : base(id, name, resourceType, systemData, tags, location)
+        internal ConfigurationGroupValueData(ResourceIdentifier id, string name, ResourceType resourceType, ResourceManager.Models.SystemData systemData, IDictionary<string, string> tags, AzureLocation location, ProvisioningState? provisioningState, string publisherName, PublisherScope? publisherScope, string configurationGroupSchemaName, string configurationGroupSchemaOfferingLocation, string configurationValue) : base(id, name, resourceType, systemData, tags, location)
         {
             ProvisioningState = provisioningState;
             PublisherName = publisherName;

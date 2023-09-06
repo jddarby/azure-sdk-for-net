@@ -14,11 +14,6 @@ skip-csproj: true
 modelerfour:
   flatten-payloads: false
 
-keep-orphaned-models:
-  - VirtualNetworkFunctionTemplate
-  - ContainerizedNetworkFunctionTemplate
- 
-
 format-by-name-rules:
   'tenantId': 'uuid'
   'ETag': 'etag'

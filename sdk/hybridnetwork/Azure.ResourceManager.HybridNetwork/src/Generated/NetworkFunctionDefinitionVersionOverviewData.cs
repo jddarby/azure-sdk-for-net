@@ -39,7 +39,7 @@ namespace Azure.ResourceManager.HybridNetwork
         /// Please note <see cref="NetworkFunctionDefinitionApplicationOverview"/> is the base class. According to the scenario, a derived class of the base class might need to be assigned here, or this property needs to be casted to one of the possible derived classes.
         /// The available derived classes include <see cref="ArmTemplateApplicationOverview"/>, <see cref="HelmPackageApplicationOverview"/> and <see cref="VhdImageFileApplicationOverview"/>.
         /// </param>
-        internal NetworkFunctionDefinitionVersionOverviewData(ResourceIdentifier id, string name, ResourceType resourceType, SystemData systemData, string description, VersionState? versionState, NetworkFunctionType? networkFunctionType, NfviType? nfviType, string deployParameters, IList<NetworkFunctionDefinitionApplicationOverview> networkFunctionApplications) : base(id, name, resourceType, systemData)
+        internal NetworkFunctionDefinitionVersionOverviewData(ResourceIdentifier id, string name, ResourceType resourceType, ResourceManager.Models.SystemData systemData, string description, VersionState? versionState, NetworkFunctionType? networkFunctionType, NfviType? nfviType, string deployParameters, IList<NetworkFunctionDefinitionApplicationOverview> networkFunctionApplications) : base(id, name, resourceType, systemData)
         {
             Description = description;
             VersionState = versionState;

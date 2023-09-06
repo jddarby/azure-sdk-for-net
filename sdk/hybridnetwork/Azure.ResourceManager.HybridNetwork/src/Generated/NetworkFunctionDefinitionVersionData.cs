@@ -36,7 +36,7 @@ namespace Azure.ResourceManager.HybridNetwork
         /// <param name="description"> The network function definition version description. </param>
         /// <param name="deployParameters"> The deployment parameters of the network function definition version. </param>
         /// <param name="networkFunctionType"> The network function type. </param>
-        internal NetworkFunctionDefinitionVersionData(ResourceIdentifier id, string name, ResourceType resourceType, SystemData systemData, IDictionary<string, string> tags, AzureLocation location, ProvisioningState? provisioningState, VersionState? versionState, string description, string deployParameters, NetworkFunctionType? networkFunctionType) : base(id, name, resourceType, systemData, tags, location)
+        internal NetworkFunctionDefinitionVersionData(ResourceIdentifier id, string name, ResourceType resourceType, ResourceManager.Models.SystemData systemData, IDictionary<string, string> tags, AzureLocation location, ProvisioningState? provisioningState, VersionState? versionState, string description, string deployParameters, NetworkFunctionType? networkFunctionType) : base(id, name, resourceType, systemData, tags, location)
         {
             ProvisioningState = provisioningState;
             VersionState = versionState;
